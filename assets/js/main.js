@@ -297,4 +297,10 @@
     })
   });
 
+  // Date Picker
+  $(function() {
+    $('#datepicker').datepicker();
+  });
+
 })()
+
