@@ -1585,3 +1585,17 @@ section {
 /*--------------------------------------------------------------
 # Pendaftaran
 --------------------------------------------------------------*/
+.bg-header-form{
+  background-color: #30475E;
+}
+
+.bg-sub{
+  background-color: #BBBBBB;
+}
+
+.btn-form.btn-warning{
+  background-color: #F05454;
+  border-color: #F05454;
+  box-shadow: 0.1rem 0.1rem 0.5rem 0.1rem rgba(66, 66, 65, 0.5);
+
+}
