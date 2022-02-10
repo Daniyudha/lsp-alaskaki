@@ -7,7 +7,7 @@
 @section('contents')
   <main>
     
-    <!-- ======= Portfolio Section ======= -->
+    <!-- ======= Gallery Section ======= -->
     <section id="portfolio" class="portfolio">
       <div class="container" data-aos="fade-up">
         
@@ -122,7 +122,7 @@
         </div>
       </div>
     </section>
-    <!-- End Portfolio Section -->
+    <!-- End Gallery Section -->
   
   </main>
 @endSection()

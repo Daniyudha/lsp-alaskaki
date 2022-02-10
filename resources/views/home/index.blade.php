@@ -14,25 +14,25 @@
     </div>
     <div class="carousel-inner">
       <div class="carousel-item active">
-        <img src="{{ asset('home_assets') }}/img/hero-bg.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
+        <img src="{{ asset('home_assets') }}/img/hero-1.png" class="d-block w-100" alt="...">
+        <!-- <div class="carousel-caption d-none d-md-block">
           <h5>First slide label</h5>
           <p>Some representative placeholder content for the first slide.</p>
-        </div>
+        </div> -->
       </div>
       <div class="carousel-item">
-        <img src="{{ asset('home_assets') }}/img/hero-bg.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
+        <img src="{{ asset('home_assets') }}/img/hero-2.png" class="d-block w-100" alt="...">
+        <!-- <div class="carousel-caption d-none d-md-block">
           <h5>Second slide label</h5>
           <p>Some representative placeholder content for the second slide.</p>
-        </div>
+        </div> -->
       </div>
       <div class="carousel-item">
-        <img src="{{ asset('home_assets') }}/img/hero-bg.jpg" class="d-block w-100" alt="...">
-        <div class="carousel-caption d-none d-md-block">
+        <img src="{{ asset('home_assets') }}/img/hero-3.png" class="d-block w-100" alt="...">
+        <!-- <div class="carousel-caption d-none d-md-block">
           <h5>Third slide label</h5>
           <p>Some representative placeholder content for the third slide.</p>
-        </div>
+        </div> -->
       </div>
     </div>
     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
@@ -52,7 +52,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-6">
           <h4>Lembaga Sertifikasi Profesi AK</h4>
-          <p>Adalah Lembaga Sertifikasi yang bergerak di dibidang pendidikan yang telah mendapatkan lisensi BNSP untuk melakukan sertifikasi untuk mahasiswa/i Universitas INDONESIA.</p>
+          <p>Adalah Lembaga Sertifikasi yang bergerak di dibidang industri alas kaki yang telah mendapatkan lisensi BNSP untuk melakukan sertifikasi.</p>
           <a href="{{ url('form-pendaftaran') }}" target="_blank"><button type="button" class="btn btn-warning">Daftar Sekarang</button></a>
         </div>
       </div>
@@ -187,11 +187,11 @@
           </div>
           
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="{{ asset('home_assets') }}/img/clients/logo-bbkkp.png" class="img-fluid" alt="">
+            <img src="{{ asset('home_assets') }}/img/clients/logo-bnsp.png" class="img-fluid" alt="">
           </div>
           
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="{{ asset('home_assets') }}/img/clients/logo-bdi.png" class="img-fluid" alt="">
+            <img src="{{ asset('home_assets') }}/img/clients/logo-bbkkp.png" class="img-fluid" alt="">
           </div>
           
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
@@ -199,17 +199,18 @@
           </div>
           
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="{{ asset('home_assets') }}/img/clients/client-5.png" class="img-fluid" alt="">
+            <img src="{{ asset('home_assets') }}/img/clients/logo-bdi.png" class="img-fluid" alt="">
           </div>
           
           <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
-            <img src="{{ asset('home_assets') }}/img/clients/client-6.png" class="img-fluid" alt="">
+            <img src="{{ asset('home_assets') }}/img/clients/logo-aprisindo.png" class="img-fluid" alt="">
           </div>
         
         </div>
       
       </div>
-    </section><!-- End Clients Section -->
+    </section>
+    <!-- End Clients Section -->
   
   </main><!-- End #main -->
 @endSection()

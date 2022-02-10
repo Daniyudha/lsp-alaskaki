@@ -10,8 +10,8 @@
   <meta content="" name="keywords">
   
   <!-- Favicons -->
-  <link href="{{ asset('home_assets') }}/img/logo-lsp.jpeg" rel="icon">
-  <link href="{{ asset('home_assets') }}/img/logo-lsp.jpeg" rel="apple-touch-icon">
+  <link href="{{ asset('home_assets') }}/img/logo-lsp.png" rel="icon">
+  <link href="{{ asset('home_assets') }}/img/logo-lsp.png" rel="apple-touch-icon">
   
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Roboto:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
@@ -50,16 +50,16 @@
 <!-- ======= Header ======= -->
 <header id="header" class="d-flex align-items-center">
   <div class="container d-flex align-items-center justify-content-between">
-    <a href="{{ url('/') }}" class="logo"><img src="{{ asset('home_assets') }}/img/logo-lsp.jpeg" alt=""></a>
+    <a href="{{ url('/') }}" class="logo"><img src="{{ asset('home_assets') }}/img/logo-lsp.png" alt=""></a>
     <nav id="navbar" class="navbar">
       <ul>
         <li><a class="nav-link scrollto active" href="{{ url('/') }}">BERANDA</a></li>
         <li class="dropdown"><a href="#"><span>PROFIL</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
-            <li><a href="visimisi.html">Visi & Misi</a></li>
+            <li><a href="{{ url('visi-dan-misi') }}">Visi & Misi</a></li>
             <li><a href="latarbelakang.html">Latar Belakang</a></li>
             <li><a href="{{ url('fungsi-dan-tujuan') }}">Fungsi dan Tujuan</a></li>
-            <li><a href="struktur.html">Struktur Organisasi</a></li>
+            <li><a href="{{ url('struktur-organisasi') }}">Struktur Organisasi</a></li>
           </ul>
         </li>
         <li class="dropdown"><a href="#"><span>SERTIFIKASI</span> <i class="bi bi-chevron-down"></i></a>
@@ -99,7 +99,7 @@
         
         <div class="col-lg-3 col-md-6 footer-contact">
           <a href="{{ url('/') }}">
-            <img src="{{ asset('home_assets') }}/img/logo-lsp.jpeg" class="d-block w-25" alt="...">
+            <img src="{{ asset('home_assets') }}/img/logo-lsp.png" class="d-block w-25" alt="...">
           </a>
           <p>
             Jl. Sokonandi No.9 Yogyakarta<br>
