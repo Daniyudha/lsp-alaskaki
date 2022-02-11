@@ -9,14 +9,23 @@
     <main>
 
         <!-- ======= About Section ======= -->
-        <section id="about" class="about section-bg mt-5">
+        <section id="about" class="about section-bg">
             <div class="container" data-aos="fade-up">  
                 <div class="section-title">
-                    <h2>About</h2>
-                    <h3>Find Out More <span>About Us</span></h3>
-                    <p>Ut possimus qui ut temporibus culpa velit eveniet modi omnis est adipisci expedita at voluptas atque vitae autem.</p>
+                    <h2>Visi & Misi</h2>
+                    <h3 class="mt-5">Visi</h3>
+                    <p class="fw-normal">Akurat, terpercaya dan berkelas dunia</p>
                 </div>
-                <div class="row">
+                <div>
+                    <h3 class="mt-3 text-center mb-3">Misi</h3>
+                    <ol>
+                        <li class="text-justify">LSP-AK menetapkan kebijakan dan menerapkan Peraturan BNSP No 1/BNSP/lll/ 2014 dan No. 2/BNSP/llll2014 secara menyeluruh tanpa pengecualian.</li>
+                        <li class="text-justify">Manajemen LSP-AK memberikan pelayanan uji kompetensi yang mengutamakan mutu dan kepuasan pelanggan serta menjamin bahwa pengerjaan pengujian dilaksanakan dengan kejujuran, teliti, cepat, tepat dan akurat serta efisien dalam menggunakan sumber daya.</li>
+                        <li>Meningkatkan kualitas dan daya saing sumber daya manusia.</li>
+                    </ol>
+                </div>
+                
+                <!-- <div class="row">
                     <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
                         <img src="assets/img/about.jpg" class="img-fluid" alt="">
                     </div>
@@ -48,7 +57,7 @@
                             culpa qui officia deserunt mollit anim id est laborum
                         </p>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
         <!-- End About Section -->
