@@ -61,9 +61,24 @@ class HomeController extends Controller {
 
 	public function visi_misi(){
 		$data = [
-			'title' => 'Visi Misi'
+			'title' => 'Visi & Misi'
 		];
 
 		return view('home.visi-dan-misi', $data);
+	}
+
+	public function struktur_organisasi(){
+		$data = [
+			'title' => 'Struktur Organisasi'
+		];
+
+		return view('home.struktur-organisasi', $data);
+	}
+	public function latar_belakang(){
+		$data = [
+			'title' => 'Latar Belakang'
+		];
+
+		return view('home.latarbelakang', $data);
 	}
 }

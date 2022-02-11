@@ -57,7 +57,7 @@
         <li class="dropdown"><a href="#"><span>PROFIL</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
             <li><a href="{{ url('visi-dan-misi') }}">Visi & Misi</a></li>
-            <li><a href="latarbelakang.html">Latar Belakang</a></li>
+            <li><a href="{{ url('latarbelakang') }}">Latar Belakang</a></li>
             <li><a href="{{ url('fungsi-dan-tujuan') }}">Fungsi dan Tujuan</a></li>
             <li><a href="{{ url('struktur-organisasi') }}">Struktur Organisasi</a></li>
           </ul>

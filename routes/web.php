@@ -20,5 +20,6 @@ Route::get('/dokumentasi', [\App\Http\Controllers\HomeController::class, 'dokume
 Route::get('/form-pendaftaran', [\App\Http\Controllers\HomeController::class, 'form_pendaftaran']);
 Route::get('/fungsi-dan-tujuan', [\App\Http\Controllers\HomeController::class, 'fungsi_tujuan']);
 Route::get('/galeri', [\App\Http\Controllers\HomeController::class, 'galeri']);
-Route::get('/struktur-organisasi', [\App\Http\Controllers\HomeController::class, 'struktur-organisasi']);
+Route::get('/struktur-organisasi', [\App\Http\Controllers\HomeController::class, 'struktur_organisasi']);
 Route::get('/visi-dan-misi', [\App\Http\Controllers\HomeController::class, 'visi_misi']);
+Route::get('/latarbelakang', [\App\Http\Controllers\HomeController::class, 'latar_belakang']);
