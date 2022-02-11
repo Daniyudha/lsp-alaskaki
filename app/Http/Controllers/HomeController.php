@@ -58,4 +58,12 @@ class HomeController extends Controller {
 
 		return view('home.galeri', $data);
 	}
+
+	public function visi_misi(){
+		$data = [
+			'title' => 'Visi Misi'
+		];
+
+		return view('home.visi-dan-misi', $data);
+	}
 }
