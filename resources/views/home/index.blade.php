@@ -5,6 +5,7 @@
 @endSection()
 
 @section('contents')
+
   <!-- ======= Hero Section ======= -->
   <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel" data-aos="zoom-out" data-aos-delay="100">
     <div class="carousel-indicators">
@@ -213,6 +214,7 @@
     <!-- End Clients Section -->
   
   </main><!-- End #main -->
+
 @endSection()
 
 @section('outJS')

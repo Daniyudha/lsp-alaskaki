@@ -65,11 +65,11 @@
         <li class="dropdown"><a href="#"><span>SERTIFIKASI</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
             <li><a href="{{ url('asesor') }}">Asesor Kompetensi</a></li>
-            <li><a href="peserta.html">Peserta Uji Kompetensi</a></li>
-            <li><a href="skema.html">Skema Kompetensi</a></li>
-            <li><a href="tempat.html">Tempat Uji Kompetensi</a></li>
-            <li><a href="pemegang.html">Pemegang Sertifikat</a></li>
-            <li><a href="laporan.html">Laporan Asesmen</a></li>
+            <li><a href="{{ url('peserta') }}">Peserta Uji Kompetensi</a></li>
+            <li><a href="{{ url('skema') }}">Skema Kompetensi</a></li>
+            <li><a href="{{ url('tempat') }}">Tempat Uji Kompetensi</a></li>
+            <li><a href="{{ url('pemegang') }}">Pemegang Sertifikat</a></li>
+            <li><a href="{{ url('laporan') }}">Laporan Asesmen</a></li>
           </ul>
         </li>
         <li class="dropdown"><a href="#"><span>MEDIA INFORMASI</span> <i class="bi bi-chevron-down"></i></a>
@@ -79,7 +79,7 @@
             <li><a href="{{ url('dokumentasi') }}">Dokumentasi Aplikasi</a></li>
           </ul>
         </li>
-        <li><a class="nav-link scrollto" href="kontak.html">KONTAK KAMI</a></li>
+        <li><a class="nav-link scrollto" href="{{ url('kontak') }}">KONTAK KAMI</a></li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>

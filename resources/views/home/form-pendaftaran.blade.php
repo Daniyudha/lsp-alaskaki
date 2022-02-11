@@ -171,7 +171,7 @@
       </div>
     </div>
     <div class="container mb-5 form-group text-center">
-      <a href="upload.html"><button type="submit" class="btn btn-form btn-warning w-100 text-white">Proses Selanjutnya ></button></a>
+      <a href="{{ url('upload') }}"><button type="submit" class="btn btn-form btn-warning w-100 text-white">Proses Selanjutnya ></button></a>
     </div>
   </main>
   <!-- End main -->

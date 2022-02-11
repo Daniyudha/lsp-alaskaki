@@ -74,11 +74,68 @@ class HomeController extends Controller {
 
 		return view('home.struktur-organisasi', $data);
 	}
+
 	public function latar_belakang(){
 		$data = [
 			'title' => 'Latar Belakang'
 		];
 
 		return view('home.latarbelakang', $data);
+	}
+
+	public function kontak(){
+		$data = [
+			'title' => 'Kontak Kami'
+		];
+
+		return view('home.kontak', $data);
+	}
+
+	public function peserta(){
+		$data = [
+			'title' => 'Peserta Kompetensi'
+		];
+
+		return view('home.peserta', $data);
+	}
+
+	public function skema(){
+		$data = [
+			'title' => 'Skema Kompetensi'
+		];
+
+		return view('home.skema', $data);
+	}
+
+	public function tempat(){
+		$data = [
+			'title' => 'Tempat Uji Kompetensi'
+		];
+
+		return view('home.tempat', $data);
+	}
+
+	public function pemegang(){
+		$data = [
+			'title' => 'Pemegang Sertifikat'
+		];
+
+		return view('home.pemegang', $data);
+	}
+
+	public function laporan(){
+		$data = [
+			'title' => 'Laporan Asesmen'
+		];
+
+		return view('home.laporan', $data);
+	}
+
+	public function upload(){
+		$data = [
+			'title' => 'Ungah Dokumen'
+		];
+
+		return view('home.upload', $data);
 	}
 }
