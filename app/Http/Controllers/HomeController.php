@@ -138,4 +138,20 @@ class HomeController extends Controller {
 
 		return view('home.upload', $data);
 	}
+
+	public function artikel(){
+		$data = [
+			'title' => 'Artikel'
+		];
+
+		return view('home.artikel', $data);
+	}
+
+	public function artikel_detail(){
+		$data = [
+			'title' => 'Artikel'
+		];
+
+		return view('home.artikel-detail', $data);
+	}
 }

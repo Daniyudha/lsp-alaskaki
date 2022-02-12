@@ -30,3 +30,5 @@ Route::get('/tempat', [\App\Http\Controllers\HomeController::class, 'tempat']);
 Route::get('/pemegang', [\App\Http\Controllers\HomeController::class, 'pemegang']);
 Route::get('/laporan', [\App\Http\Controllers\HomeController::class, 'laporan']);
 Route::get('/upload', [\App\Http\Controllers\HomeController::class, 'upload']);
+Route::get('/artikel', [\App\Http\Controllers\HomeController::class, 'artikel']);
+Route::get('/artikel-detail', [\App\Http\Controllers\HomeController::class, 'artikel_detail']);

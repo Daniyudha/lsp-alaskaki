@@ -5,6 +5,7 @@
 @endSection()
 
 @section('contents')
+
 <main id="main" class="mt-5 mb-5" data-aos="fade-up">
 
     <!-- ======= Table Asesor ======= -->
@@ -90,6 +91,7 @@
     <!-- End Table -->
 
 </main>
+
 @endSection()
 
 @section('outJS')
