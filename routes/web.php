@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\RegistrantController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -12,27 +16,42 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', [\App\Http\Controllers\HomeController::class, 'index']);
-Route::get('/asesor', [\App\Http\Controllers\HomeController::class, 'asesor']);
-Route::get('/syarat-dan-ketentuan', [\App\Http\Controllers\HomeController::class, 'faq']);
-Route::get('/dokumentasi', [\App\Http\Controllers\HomeController::class, 'dokumentasi']);
-Route::get('/form-pendaftaran', [\App\Http\Controllers\HomeController::class, 'form_pendaftaran'])
+Route::get('/', [HomeController::class, 'index'])->name('root');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/asesor', [HomeController::class, 'asesor']);
+Route::get('/syarat-dan-ketentuan', [HomeController::class, 'faq']);
+Route::get('/dokumentasi', [HomeController::class, 'dokumentasi']);
+Route::get('/form-pendaftaran', [HomeController::class, 'form_pendaftaran'])
 	->name('form-pendaftaran');
-Route::get('/fungsi-dan-tujuan', [\App\Http\Controllers\HomeController::class, 'fungsi_tujuan']);
-Route::get('/galeri', [\App\Http\Controllers\HomeController::class, 'galeri']);
-Route::get('/struktur-organisasi', [\App\Http\Controllers\HomeController::class, 'struktur_organisasi']);
-Route::get('/visi-dan-misi', [\App\Http\Controllers\HomeController::class, 'visi_misi']);
-Route::get('/latarbelakang', [\App\Http\Controllers\HomeController::class, 'latar_belakang']);
-Route::get('/kontak', [\App\Http\Controllers\HomeController::class, 'kontak']);
-Route::get('/peserta', [\App\Http\Controllers\HomeController::class, 'peserta']);
-Route::get('/skema', [\App\Http\Controllers\HomeController::class, 'skema']);
-Route::get('/tempat', [\App\Http\Controllers\HomeController::class, 'tempat']);
-Route::get('/pemegang', [\App\Http\Controllers\HomeController::class, 'pemegang']);
-Route::get('/laporan', [\App\Http\Controllers\HomeController::class, 'laporan']);
-Route::get('/upload', [\App\Http\Controllers\HomeController::class, 'upload']);
-Route::get('/artikel', [\App\Http\Controllers\HomeController::class, 'artikel']);
-Route::get('/artikel-detail', [\App\Http\Controllers\HomeController::class, 'artikel_detail']);
+Route::get('/fungsi-dan-tujuan', [HomeController::class, 'fungsi_tujuan']);
+Route::get('/galeri', [HomeController::class, 'galeri']);
+Route::get('/struktur-organisasi', [HomeController::class, 'struktur_organisasi']);
+Route::get('/visi-dan-misi', [HomeController::class, 'visi_misi']);
+Route::get('/latar-belakang', [HomeController::class, 'latar_belakang']);
+Route::get('/kontak', [HomeController::class, 'kontak']);
+Route::get('/peserta', [HomeController::class, 'peserta']);
+Route::get('/skema', [HomeController::class, 'skema']);
+Route::get('/tempat', [HomeController::class, 'tempat']);
+Route::get('/pemegang', [HomeController::class, 'pemegang']);
+Route::get('/laporan', [HomeController::class, 'laporan']);
+Route::get('/upload', [HomeController::class, 'upload']);
+Route::get('/artikel', [HomeController::class, 'artikel']);
+Route::get('/artikel-detail', [HomeController::class, 'artikel_detail']);
 
-Route::post('/form-pendaftaran-post', [\App\Http\Controllers\HomeController::class, 'form_pendaftaran_post'])
+Route::post('/form-pendaftaran-post', [HomeController::class, 'form_pendaftaran_post'])
 	->name('form-pendaftaran-post');
+
+Route::get('/login', [AuthController::class, 'login'])->name('login')
+	->middleware('guest');
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout')
+	->middleware('auth');
+Route::post('/login', [AuthController::class, 'loginPost'])->name('login.post')
+	->middleware('guest');
+
+Route::prefix('dashboard')->middleware('auth')->group(function (){
+	Route::get('/', [AdminController::class, 'index'])->name('dashboard.admin');
+	Route::get('/registrant', [RegistrantController::class, 'index'])->name('registrant.index');
+	Route::get('/registrant/{registrant}/edit', [RegistrantController::class, 'edit'])->name('registrant.edit');
+	Route::put('/registrant/{registrant}/edit', [RegistrantController::class, 'update'])->name('registrant.update');
+	Route::delete('/registrant/{registrant}/delete', [RegistrantController::class, 'destroy'])->name('registrant.destroy');
+});

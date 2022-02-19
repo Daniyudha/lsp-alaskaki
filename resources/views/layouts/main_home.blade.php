@@ -60,7 +60,7 @@
         <li class="dropdown"><a href="#"><span>PROFIL</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
             <li><a href="{{ url('visi-dan-misi') }}">Visi & Misi</a></li>
-            <li><a href="{{ url('latarbelakang') }}">Latar Belakang</a></li>
+            <li><a href="{{ url('latar-belakang') }}">Latar Belakang</a></li>
             <li><a href="{{ url('fungsi-dan-tujuan') }}">Fungsi dan Tujuan</a></li>
             <li><a href="{{ url('struktur-organisasi') }}">Struktur Organisasi</a></li>
           </ul>
@@ -166,6 +166,7 @@
 <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
 
 <!-- Vendor JS Files -->
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.js"></script>
 <script src="{{ asset('home_assets') }}/vendor/purecounter/purecounter.js"></script>
 <script src="{{ asset('home_assets') }}/vendor/aos/aos.js"></script>
 <script src="{{ asset('home_assets') }}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

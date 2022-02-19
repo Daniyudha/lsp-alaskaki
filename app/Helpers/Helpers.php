@@ -50,6 +50,17 @@ function getSchemaCertificate($number): string {
 	}
 }
 
+function getStatusBadge($status)
+{
+	if($status == 'success'){
+		return '<span class="badge badge-success">success</span>';
+	} else if($status == 'pending'){
+		return '<span class="badge badge-warning">pending</span>';
+	} else {
+		return '<span class="badge badge-danger">batal</span>';
+	}
+}
+
 function setGetUniqueId($insert_id, $type, $schema)
 {
 	return strtoupper($type).'.'.

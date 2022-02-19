@@ -98,8 +98,10 @@ class HomeController extends Controller {
 	}
 
 	public function peserta(){
+		$registrants = Registrant::all();
 		$data = [
-			'title' => 'Peserta Kompetensi'
+			'title' => 'Peserta Kompetensi',
+			'registrants' => $registrants
 		];
 
 		return view('home.peserta', $data);
