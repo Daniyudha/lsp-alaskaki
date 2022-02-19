@@ -42,6 +42,10 @@
         <i class="bi bi-phone d-flex align-items-center ms-4"><a href="https://wa.me/628995050571?text=Halo,%20info%20tentang%20LSP%20AK%20Jogja%20?" target="_blank">+628995050571</a></i>
       </div>
       <div class="social-links d-none d-md-flex align-items-center">
+        @auth
+          <a href="{{ route('dashboard.admin') }}">Dashboard</a>
+          <a href="{{ route('logout') }}">Logout</a>
+        @endauth
         <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
         <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
         <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
@@ -60,7 +64,7 @@
         <li class="dropdown"><a href="#"><span>PROFIL</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
             <li><a href="{{ url('visi-dan-misi') }}">Visi & Misi</a></li>
-            <li><a href="{{ url('latarbelakang') }}">Latar Belakang</a></li>
+            <li><a href="{{ url('latar-belakang') }}">Latar Belakang</a></li>
             <li><a href="{{ url('fungsi-dan-tujuan') }}">Fungsi dan Tujuan</a></li>
             <li><a href="{{ url('struktur-organisasi') }}">Struktur Organisasi</a></li>
           </ul>
