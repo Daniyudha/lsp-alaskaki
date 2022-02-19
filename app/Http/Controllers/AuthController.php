@@ -18,7 +18,7 @@ class AuthController extends Controller
     public function loginPost(Request $request)
     {
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            return redirect()->route('root')
+            return redirect()->route('dashboard.admin')
                 ->with('message', sweetAlert('Success', 'Berhasil Login!', 'success'));
         } else {
             return redirect()->back()

@@ -42,9 +42,11 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Nama</th>
                                     <th>Jenis</th>
-                                    <th  class="text-center">Status</th>
-                                    <th  class="text-center">Aksi</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Dibuat</th>
+                                    <th class="text-center">Aksi</th>
                                 </tr>
                                 </thead>
 
@@ -53,11 +55,17 @@
 
                                 @foreach($registrants as $reg)
                                     <tr>
-                                        <td>{{ $reg['unique_id'] }}</td>
+                                        <td data-order="{{ $reg['id'] }}">{{ $reg['unique_id'] }}</td>
+                                        <td>{{ $reg->nama_lengkap }}</td>
                                         <td>{{ getSchemaCertificate($reg['skema_sertifikasi']) }}</td>
                                         <td class="text-center">{!! getStatusBadge($reg['status']) !!}</td>
                                         <td class="text-center">
-                                            <div class="btn-group mt-1 mr-1 dropright" style="z-index: 999999;">
+                                            <span data-toggle="tooltip" data-placement="top" title="{{ \Carbon\Carbon::parse($reg->created_at)->diffForHumans() }}">
+                                              {{ \Carbon\Carbon::parse($reg->created_at)->format('d-m-Y H:i') }}
+                                            </span>
+                                        </td>
+                                        <td class="text-center">
+                                            <div class="btn-group btn-group-sm mt-1 mr-1 dropright" style="z-index: 999999;">
                                                 <button type="button" class="btn btn-secondary waves-effect waves-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                     <i class="mdi mdi-chevron-down"></i> Pilihan
                                                 </button>
@@ -102,7 +110,13 @@
 
     <script>
         $(document).ready(function (){
-            let table = $('#datatable').DataTable()
+            // let table = $('#datatable').DataTable()
+            let table = $('#datatable')
+
+            let t = table.DataTable({
+                'order': [ 0, 'desc' ]
+            })
+            
             let nama = '';
             table.on('click', '.btn_delete', function (e){
                 nama = $(this).data('nama')
