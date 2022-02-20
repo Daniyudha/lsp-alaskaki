@@ -17,9 +17,9 @@
     @csrf
     <div class="container mt-5 section-bg p-3 rounded-3">
       <h5><span class="text-danger">*</span> Pilih Skema Sertifikasi</h5>
-      <select class="form-select @error('product_name') is-invalid @enderror" required name="skema_sertifikasi">
+      <select class="form-select @error('skema_sertifikasi') is-invalid @enderror" required name="skema_sertifikasi">
         <option selected>-- Pilih Skema --</option>
-        <option value="1">1. MENJAHIT ALAS KAKI</option>
+        <option value="1" {{ ('skema_sertifikasi') == 1 ? 'selected' : '' }}>1. MENJAHIT ALAS KAKI</option>
         <option value="2">2. PEMBUATAN POLA SECARA MANUAL</option>
         <option value="3">3. PEMOTONGAN (CUTTING) BAHAN ALAS KAKI MENGGUNAKAN MESIN</option>
         <option value="4">4. PEMOTONGAN (CUTTING) BAHAN ALAS KAKI SECARA MANUAL</option>
@@ -37,13 +37,20 @@
       </div>
       @enderror
       <div class="mb-3 mt-3">
+        @php
+          if(old('jenis_uji')){
+	          $checkType = old('jenis_uji');
+          } else {
+	          $checkType = null;
+          }
+        @endphp
         <p class="form-label fw-bold"><span class="text-danger">*</span> Jenis Uji</p>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="jenis_uji" id="jenis_uji_S" value="sertifikasi" required>
+          <input class="form-check-input" {{ $checkType == 'sertifikasi' ? 'checked' : '' }} type="radio" name="jenis_uji" id="jenis_uji_S" value="sertifikasi" required>
           <label class="form-check-label" for="jenis_uji_S">SERTIFIKASI</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="jenis_uji" id="jenis_uji_R" value="rcc" required>
+          <input class="form-check-input" {{ $checkType == 'rcc' ? 'checked' : '' }} type="radio" name="jenis_uji" id="jenis_uji_R" value="rcc" required>
           <label class="form-check-label" for="jenis_uji_R">RCC</label>
         </div>
         @error('jenis_uji')
@@ -60,7 +67,8 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="no_ktp" class="form-label fw-bold"><span class="text-danger">*</span> No. KTP :</label>
-        <input type="text" name="no_ktp" class="form-control @error('no_ktp') is-invalid @enderror" id="no_ktp" placeholder="No. KTP" required>
+        <input type="text" name="no_ktp" value="{{ old('no_ktp') }}"
+               class="form-control @error('no_ktp') is-invalid @enderror" id="no_ktp" placeholder="No. KTP" required>
         @error('no_ktp')
         <div class="invalid-feedback">
           {{ $message }}
@@ -69,7 +77,8 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="nama_lengkap" class="form-label fw-bold"><span class="text-danger">*</span> Nama Lengkap :</label>
-        <input type="text" name="nama_lengkap" class="form-control @error('nama_lengkap') is-invalid @enderror" id="nama_lengkap" placeholder="Nama Lengkap" required>
+        <input type="text" name="nama_lengkap" value="{{ old('nama_lengkap') }}"
+               class="form-control @error('nama_lengkap') is-invalid @enderror" id="nama_lengkap" placeholder="Nama Lengkap" required>
         @error('nama_lengkap')
         <div class="invalid-feedback">
           {{ $message }}
@@ -77,13 +86,20 @@
         @enderror
       </div>
       <div class="mb-3 mt-3">
+        @php
+          if(old('jenis_kelamin')){
+	          $checkSex = old('jenis_kelamin');
+          } else {
+	          $checkSex = null;
+          }
+        @endphp
         <p class="form-label fw-bold"><span class="text-danger">*</span> Jenis Kelamin :</p>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin_L" value="L" required>
+          <input class="form-check-input" {{ $checkSex == 'L' ? 'checked' : '' }} type="radio" name="jenis_kelamin" id="jenis_kelamin_L" value="L" required>
           <label class="form-check-label" for="jenis_kelamin_L">Laki-laki</label>
         </div>
         <div class="form-check form-check-inline">
-          <input class="form-check-input" type="radio" name="jenis_kelamin" id="jenis_kelamin_P" value="P" required>
+          <input class="form-check-input" {{ $checkSex == 'P' ? 'checked' : '' }} type="radio" name="jenis_kelamin" id="jenis_kelamin_P" value="P" required>
           <label class="form-check-label" for="jenis_kelamin_P">Perempuan</label>
         </div>
         @error('jenis_kelamin')
@@ -94,7 +110,8 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="no_hp" class="form-label fw-bold"><span class="text-danger">*</span> No. Telepon :</label>
-        <input type="text" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp" id="no_hp" placeholder="No. Telepon yang aktif" required>
+        <input type="text" value="{{ old('no_hp') }}"
+               class="form-control @error('no_hp') is-invalid @enderror" name="no_hp" id="no_hp" placeholder="No. Telepon yang aktif" required>
         @error('no_hp')
         <div class="invalid-feedback">
           {{ $message }}
@@ -103,7 +120,8 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="email" class="form-label fw-bold"><span class="text-danger">*</span> Email Pribadi :</label>
-        <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="name@example.com" required>
+        <input type="email" value="{{ old('email') }}"
+               class="form-control @error('email') is-invalid @enderror" name="email" id="email" placeholder="name@example.com" required>
         @error('email')
         <div class="invalid-feedback">
           {{ $message }}
@@ -112,7 +130,8 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="tempat_lahir" class="form-label fw-bold"><span class="text-danger">*</span> Tempat Lahir :</label>
-        <input type="text" name="tempat_lahir" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" placeholder="No. KTP" required>
+        <input type="text" name="tempat_lahir" value="{{ old('tempat_lahir') }}"
+               class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" placeholder="No. KTP" required>
         @error('tempat_lahir')
         <div class="invalid-feedback">
           {{ $message }}
@@ -122,7 +141,8 @@
       <div class="form-group">
         <label for="tanggal_lahir" class="form-label fw-bold"><span class="text-danger">*</span> Tanggal Lahir :</label>
         <div class="input-group date" id="datepicker">
-          <input type="date" class="form-control @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir" name="tanggal_lahir" required>
+          <input type="date" value="{{ old('tanggal_lahir') }}"
+                 class="form-control @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir" name="tanggal_lahir" required>
           <span class="input-group-append">
             <i class="fa fa-calendar"></i>
           </span>
@@ -135,7 +155,8 @@
       </div>
       <div class="form-group mb-3 mt-3">
         <label for="provinsi" class="form-label fw-bold"><span class="text-danger">*</span> Provinsi:</label>
-        <input type="text" class="form-control @error('provinsi') is-invalid @enderror" name="provinsi" id="provinsi" placeholder="Yogyakarta" required>
+        <input type="text" value="{{ old('provinsi') }}"
+               class="form-control @error('provinsi') is-invalid @enderror" name="provinsi" id="provinsi" placeholder="Yogyakarta" required>
         @error('provinsi')
         <div class="invalid-feedback">
           {{ $message }}
@@ -144,7 +165,8 @@
       </div>
       <div class="form-group mb-3 mt-3">
         <label for="kabupaten" class="form-label fw-bold"> <span class="text-danger">*</span> Kota/Kabupaten:</label>
-        <input type="text" class="form-control @error('kabupaten') is-invalid @enderror" name="kabupaten" id="kabupaten" placeholder="Sleman" required>
+        <input type="text" value="{{ old('kabupaten') }}"
+               class="form-control @error('kabupaten') is-invalid @enderror" name="kabupaten" id="kabupaten" placeholder="Sleman" required>
         @error('kabupaten')
         <div class="invalid-feedback">
           {{ $message }}
@@ -153,7 +175,8 @@
       </div>
       <div class="form-group mb-3 mt-3">
         <label for="kecamatan" class="form-label fw-bold"><span class="text-danger">*</span> Kecamatan:</label>
-        <input type="text" class="form-control @error('kecamatan') is-invalid @enderror" name="kecamatan" id="kecamatan" placeholder="Turi" required>
+        <input type="text" value="{{ old('kecamatan') }}"
+               class="form-control @error('kecamatan') is-invalid @enderror" name="kecamatan" id="kecamatan" placeholder="Turi" required>
         @error('kecamatan')
         <div class="invalid-feedback">
           {{ $message }}
@@ -162,7 +185,8 @@
       </div>
       <div class="form-group mb-3 mt-3">
         <label for="kelurahan" class="form-label fw-bold"><span class="text-danger">*</span> Kelurahan:</label>
-        <input type="text" class="form-control @error('kelurahan') is-invalid @enderror" name="kelurahan" id="kelurahan" placeholder="Girikerto" required>
+        <input type="text" value="{{ old('kelurahan') }}"
+               class="form-control @error('kelurahan') is-invalid @enderror" name="kelurahan" id="kelurahan" placeholder="Girikerto" required>
         @error('kelurahan')
         <div class="invalid-feedback">
           {{ $message }}
@@ -171,7 +195,8 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="kode_pos" class="form-label fw-bold"><span class="text-danger">*</span> Kode Pos :</label>
-        <input type="number" class="form-control @error('kode_pos') is-invalid @enderror" name="kode_pos" id="kode_pos" placeholder="55551" required>
+        <input type="number" value="{{ old('kode_pos') }}"
+               class="form-control @error('kode_pos') is-invalid @enderror" name="kode_pos" id="kode_pos" placeholder="55551" required>
         @error('kode_pos')
         <div class="invalid-feedback">
           {{ $message }}
@@ -180,7 +205,7 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="alamat_sesuai_ktp" class="form-label fw-bold"><span class="text-danger">*</span> Alamat Sesuai KTP :</label>
-        <textarea class="form-control @error('alamat_sesuai_ktp') is-invalid @enderror" name="alamat_sesuai_ktp" id="alamat_sesuai_ktp" rows="3" required></textarea>
+        <textarea class="form-control @error('alamat_sesuai_ktp') is-invalid @enderror" name="alamat_sesuai_ktp" id="alamat_sesuai_ktp" rows="3" required>{{ old('alamat_sesuai_ktp') }}</textarea>
         @error('alamat_sesuai_ktp')
         <div class="invalid-feedback">
           {{ $message }}
@@ -195,7 +220,7 @@
         <label for="pendidikan_terakhir" class="form-label fw-bold"><span class="text-danger">*</span> Pendidikan Terakhir :</label>
         <select class="form-select @error('pendidikan_terakhir') is-invalid @enderror" name="pendidikan_terakhir" id="pendidikan_terakhir" required>
           <option selected>-- Pilih Pendidikan --</option>
-          <option value="S3">1. S3</option>
+          <option value="S3" {{ old('pendidikan_terakhir') == 'S3' ? 'selected' : '' }}>1. S3</option>
           <option value="S2">2. S2</option>
           <option value="S1">3. S1</option>
           <option value="D4">4. D4</option>
@@ -214,7 +239,7 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="universitas_sekolah" class="form-label fw-bold"><span class="text-danger">*</span> Perguruan Tinggi/Universitas atau Sekolah :</label>
-        <input type="text" class="form-control @error('universitas_sekolah') is-invalid @enderror" name="universitas_sekolah" id="universitas_sekolah" placeholder="Lembaga atau Institusi Pendidikan" required>
+        <input type="text" value="{{ old('universitas_sekolah') }}" class="form-control @error('universitas_sekolah') is-invalid @enderror" name="universitas_sekolah" id="universitas_sekolah" placeholder="Lembaga atau Institusi Pendidikan" required>
         @error('universitas_sekolah')
         <div class="invalid-feedback">
           {{ $message }}
@@ -223,7 +248,7 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="bidang_usaha" class="form-label fw-bold"><span class="text-danger">*</span> Jenis/Bidang Usaha :</label>
-        <input type="text" class="form-control @error('bidang_usaha') is-invalid @enderror" id="bidang_usaha" name="bidang_usaha" placeholder="Bidang Usaha Tempat Praktek" required>
+        <input type="text" value="{{ old('bidang_usaha') }}" class="form-control @error('bidang_usaha') is-invalid @enderror" id="bidang_usaha" name="bidang_usaha" placeholder="Bidang Usaha Tempat Praktek" required>
         @error('bidang_usaha')
         <div class="invalid-feedback">
           {{ $message }}
