@@ -60,7 +60,7 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="no_ktp" class="form-label fw-bold"><span class="text-danger">*</span> No. KTP :</label>
-        <input type="text" name="no_ktp" class="form-control @error('no_ktp') is-invalid @enderror" id="no_ktp" placeholder="No. KTP" required>
+        <input type="text" name="no_ktp" class="form-control @error('no_ktp') is-invalid @enderror" id="no_ktp" placeholder="1234567890" required>
         @error('no_ktp')
         <div class="invalid-feedback">
           {{ $message }}
@@ -69,7 +69,7 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="nama_lengkap" class="form-label fw-bold"><span class="text-danger">*</span> Nama Lengkap :</label>
-        <input type="text" name="nama_lengkap" class="form-control @error('nama_lengkap') is-invalid @enderror" id="nama_lengkap" placeholder="Nama Lengkap" required>
+        <input type="text" name="nama_lengkap" class="form-control @error('nama_lengkap') is-invalid @enderror" id="nama_lengkap" placeholder="Alexander Purwoto" required>
         @error('nama_lengkap')
         <div class="invalid-feedback">
           {{ $message }}
@@ -94,7 +94,7 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="no_hp" class="form-label fw-bold"><span class="text-danger">*</span> No. Telepon :</label>
-        <input type="text" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp" id="no_hp" placeholder="No. Telepon yang aktif" required>
+        <input type="text" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp" id="no_hp" placeholder="081234567xxx" required>
         @error('no_hp')
         <div class="invalid-feedback">
           {{ $message }}
@@ -112,7 +112,7 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="tempat_lahir" class="form-label fw-bold"><span class="text-danger">*</span> Tempat Lahir :</label>
-        <input type="text" name="tempat_lahir" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" placeholder="No. KTP" required>
+        <input type="text" name="tempat_lahir" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" placeholder="Yogyakarta" required>
         @error('tempat_lahir')
         <div class="invalid-feedback">
           {{ $message }}
@@ -214,7 +214,7 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="universitas_sekolah" class="form-label fw-bold"><span class="text-danger">*</span> Perguruan Tinggi/Universitas atau Sekolah :</label>
-        <input type="text" class="form-control @error('universitas_sekolah') is-invalid @enderror" name="universitas_sekolah" id="universitas_sekolah" placeholder="Lembaga atau Institusi Pendidikan" required>
+        <input type="text" class="form-control @error('universitas_sekolah') is-invalid @enderror" name="universitas_sekolah" id="universitas_sekolah" placeholder="Universitas Terbuka" required>
         @error('universitas_sekolah')
         <div class="invalid-feedback">
           {{ $message }}
@@ -222,8 +222,8 @@
         @enderror
       </div>
       <div class="mb-3 mt-3">
-        <label for="bidang_usaha" class="form-label fw-bold"><span class="text-danger">*</span> Jenis/Bidang Usaha :</label>
-        <input type="text" class="form-control @error('bidang_usaha') is-invalid @enderror" id="bidang_usaha" name="bidang_usaha" placeholder="Bidang Usaha Tempat Praktek" required>
+        <label for="bidang_usaha" class="form-label fw-bold">Jenis/Bidang Usaha :</label>
+        <input type="text" class="form-control @error('bidang_usaha') is-invalid @enderror" id="bidang_usaha" name="bidang_usaha" placeholder="Sepatu">
         @error('bidang_usaha')
         <div class="invalid-feedback">
           {{ $message }}
@@ -232,7 +232,7 @@
       </div>
 
       <div class="bg-sub p-2 mt-4 rounded">
-        <p class="fw-bold text-white mb-0">Unggah Dokumen</p>
+        <p class="fw-bold text-white mb-0">Unggah Dokumen (format gambar)</p>
       </div>
       <div class="mt-3 mb-3">
         <label for="foto_ktp" class="form-label fw-bold"><span class="text-danger">*</span> Upload Foto Ktp</label>

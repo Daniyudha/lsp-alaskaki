@@ -60,7 +60,7 @@
         <li class="dropdown"><a href="#"><span>PROFIL</span> <i class="bi bi-chevron-down"></i></a>
           <ul>
             <li><a href="{{ url('visi-dan-misi') }}">Visi & Misi</a></li>
-            <li><a href="{{ url('latarbelakang') }}">Latar Belakang</a></li>
+            <li><a href="{{ url('latar-belakang') }}">Latar Belakang</a></li>
             <li><a href="{{ url('fungsi-dan-tujuan') }}">Fungsi dan Tujuan</a></li>
             <li><a href="{{ url('struktur-organisasi') }}">Struktur Organisasi</a></li>
           </ul>
@@ -83,6 +83,7 @@
           </ul>
         </li>
         <li><a class="nav-link scrollto" href="{{ url('kontak') }}">KONTAK KAMI</a></li>
+        <a href="{{ url('form-pendaftaran') }}" target="_blank"><button type="button" class="btn btn-warning">Daftar Sekarang</button></a>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>
