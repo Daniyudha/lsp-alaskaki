@@ -38,7 +38,7 @@
             <tbody>
             @foreach($registrants as $registrant)
               <tr>
-                <td>{{ $registrant->unique_id }}</td>
+                <td data-order="{{ $registrant->id }}">{{ $registrant->unique_id }}</td>
                 <td>{{ $registrant->nama_lengkap }}</td>
                 <td>{{ getSchemaCertificate($registrant->skema_sertifikasi) }}</td>
                 <td>
@@ -66,7 +66,11 @@
   <script src="{{ asset('dashboard_assets/libs/datatables.net-responsive-bs4/js/responsive.bootstrap4.min.js') }}"></script>
   <script>
     $(document).ready(function() {
-        let table = $('#datatable-peserta').DataTable()
+        let table = $('#datatable-peserta')
+
+        let t = table.DataTable({
+            'order': [ 0, 'desc' ]
+        })
     })
   </script>
 @endSection()

@@ -124,8 +124,11 @@ class HomeController extends Controller {
 	}
 
 	public function pemegang(){
+		$registrants = Registrant::query()
+			->where('status', 'success')->get();
 		$data = [
-			'title' => 'Pemegang Sertifikat'
+			'title' => 'Pemegang Sertifikat',
+			'registrants' => $registrants
 		];
 
 		return view('home.pemegang', $data);
