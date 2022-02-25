@@ -53,7 +53,7 @@ class CreateRegistrantRequest extends FormRequest
 							Rule::in(['S3','S2','S1','D4','D3','D2','D1','SMA/SEDRAJAT','SMP','SD'])
 						],
             'universitas_sekolah' => 'required|string',
-            'bidang_usaha' => 'required|string',
+            'bidang_usaha' => 'nullable|string',
             'foto_ktp' => 'required|image|mimes:jpeg,png,jpg',
             'foto_ijazah' => 'required|image|mimes:jpeg,png,jpg',
             'sertifikat_pelatihan' => 'nullable|image|mimes:jpeg,png,jpg'

@@ -22,7 +22,13 @@ class RegistrantController extends Controller
 
 		public function edit(Registrant $registrant)
 		{
-			dd($registrant);
+			//dd($registrant, $request);
+			$data = [
+				'title' => 'Edit '.$registrant->unique_id,
+				'registrant' => $registrant
+			];
+
+			return view('admin.registrant.admin-registrant-edit', $data);
 		}
 
 		public function update(Registrant $registrant, Request $request)

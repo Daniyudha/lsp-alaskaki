@@ -19,17 +19,17 @@
       <h5><span class="text-danger">*</span> Pilih Skema Sertifikasi</h5>
       <select class="form-select @error('skema_sertifikasi') is-invalid @enderror" required name="skema_sertifikasi">
         <option selected>-- Pilih Skema --</option>
-        <option value="1" {{ ('skema_sertifikasi') == 1 ? 'selected' : '' }}>1. MENJAHIT ALAS KAKI</option>
-        <option value="2">2. PEMBUATAN POLA SECARA MANUAL</option>
-        <option value="3">3. PEMOTONGAN (CUTTING) BAHAN ALAS KAKI MENGGUNAKAN MESIN</option>
-        <option value="4">4. PEMOTONGAN (CUTTING) BAHAN ALAS KAKI SECARA MANUAL</option>
-        <option value="5">5. PENGEMALAN ALAS KAKI</option>
-        <option value="6">6. PENGKASARAN SEPATU/ ALAS KAKI (ROUGHING)</option>
-        <option value="7">7. PENGOPENAN ALAS KAKI DENGAN MESIN</option>
-        <option value="8">8. PENGOPENAN ALAS KAKI SECARA MANUAL</option>
-        <option value="9">9. PENGOPERASIAN MESIN INJEKSI OUTSOLE</option>
-        <option value="10">10. PENYELESAIAN PRODUK ALAS KAKI (FINISHER)</option>
-        <option value="11">11. PERAKITAN ALAS KAKI</option>
+        <option value="1" {{ old('skema_sertifikasi') == 1 ? 'selected' : '' }}>1. MENJAHIT ALAS KAKI</option>
+        <option value="2" {{ old('skema_sertifikasi') == 2 ? 'selected' : '' }}>2. PEMBUATAN POLA SECARA MANUAL</option>
+        <option value="3" {{ old('skema_sertifikasi') == 3 ? 'selected' : '' }}>3. PEMOTONGAN (CUTTING) BAHAN ALAS KAKI MENGGUNAKAN MESIN</option>
+        <option value="4" {{ old('skema_sertifikasi') == 4 ? 'selected' : '' }}>4. PEMOTONGAN (CUTTING) BAHAN ALAS KAKI SECARA MANUAL</option>
+        <option value="5" {{ old('skema_sertifikasi') == 5 ? 'selected' : '' }}>5. PENGEMALAN ALAS KAKI</option>
+        <option value="6" {{ old('skema_sertifikasi') == 6 ? 'selected' : '' }}>6. PENGKASARAN SEPATU/ ALAS KAKI (ROUGHING)</option>
+        <option value="7" {{ old('skema_sertifikasi') == 7 ? 'selected' : '' }}>7. PENGOPENAN ALAS KAKI DENGAN MESIN</option>
+        <option value="8" {{ old('skema_sertifikasi') == 8 ? 'selected' : '' }}>8. PENGOPENAN ALAS KAKI SECARA MANUAL</option>
+        <option value="9" {{ old('skema_sertifikasi') == 9 ? 'selected' : '' }}>9. PENGOPERASIAN MESIN INJEKSI OUTSOLE</option>
+        <option value="10" {{ old('skema_sertifikasi') == 10 ? 'selected' : '' }}>10. PENYELESAIAN PRODUK ALAS KAKI (FINISHER)</option>
+        <option value="11" {{ old('skema_sertifikasi') == 11 ? 'selected' : '' }}>11. PERAKITAN ALAS KAKI</option>
       </select>
       @error('skema_sertifikasi')
       <div class="invalid-feedback">
@@ -67,7 +67,7 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="no_ktp" class="form-label fw-bold"><span class="text-danger">*</span> No. KTP :</label>
-        <input type="text" name="no_ktp" class="form-control @error('no_ktp') is-invalid @enderror" id="no_ktp" placeholder="1234567890" required>
+        <input type="text" value="{{ old('no_ktp') }}" name="no_ktp" class="form-control @error('no_ktp') is-invalid @enderror" id="no_ktp" placeholder="1234567890" required>
         @error('no_ktp')
         <div class="invalid-feedback">
           {{ $message }}
@@ -76,7 +76,7 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="nama_lengkap" class="form-label fw-bold"><span class="text-danger">*</span> Nama Lengkap :</label>
-        <input type="text" name="nama_lengkap" class="form-control @error('nama_lengkap') is-invalid @enderror" id="nama_lengkap" placeholder="Alexander Purwoto" required>
+        <input type="text" value="{{ old('nama_lengkap') }}" name="nama_lengkap" class="form-control @error('nama_lengkap') is-invalid @enderror" id="nama_lengkap" placeholder="Alexander Purwoto" required>
         @error('nama_lengkap')
         <div class="invalid-feedback">
           {{ $message }}
@@ -108,7 +108,7 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="no_hp" class="form-label fw-bold"><span class="text-danger">*</span> No. Telepon :</label>
-        <input type="text" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp" id="no_hp" placeholder="081234567xxx" required>
+        <input type="text" value="{{ old('no_hp') }}" class="form-control @error('no_hp') is-invalid @enderror" name="no_hp" id="no_hp" placeholder="081234567xxx" required>
         @error('no_hp')
         <div class="invalid-feedback">
           {{ $message }}
@@ -127,7 +127,7 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="tempat_lahir" class="form-label fw-bold"><span class="text-danger">*</span> Tempat Lahir :</label>
-        <input type="text" name="tempat_lahir" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" placeholder="Yogyakarta" required>
+        <input type="text" value="{{ old('tempat_lahir') }}" name="tempat_lahir" class="form-control @error('tempat_lahir') is-invalid @enderror" id="tempat_lahir" placeholder="Sleman" required>
         @error('tempat_lahir')
         <div class="invalid-feedback">
           {{ $message }}
@@ -217,15 +217,15 @@
         <select class="form-select @error('pendidikan_terakhir') is-invalid @enderror" name="pendidikan_terakhir" id="pendidikan_terakhir" required>
           <option selected>-- Pilih Pendidikan --</option>
           <option value="S3" {{ old('pendidikan_terakhir') == 'S3' ? 'selected' : '' }}>1. S3</option>
-          <option value="S2">2. S2</option>
-          <option value="S1">3. S1</option>
-          <option value="D4">4. D4</option>
-          <option value="D3">5. D3</option>
-          <option value="D2">6. D2</option>
-          <option value="D1">7. D1</option>
-          <option value="SMA/SEDRAJAT">8. SMA/SEDRAJAT</option>
-          <option value="SMP">9. SMP</option>
-          <option value="SD">10. SD</option>
+          <option value="S2" {{ old('pendidikan_terakhir') == 'S2' ? 'selected' : '' }}>2. S2</option>
+          <option value="S1" {{ old('pendidikan_terakhir') == 'S1' ? 'selected' : '' }}>3. S1</option>
+          <option value="D4" {{ old('pendidikan_terakhir') == 'D4' ? 'selected' : '' }}>4. D4</option>
+          <option value="D3" {{ old('pendidikan_terakhir') == 'D3' ? 'selected' : '' }}>5. D3</option>
+          <option value="D2" {{ old('pendidikan_terakhir') == 'D2' ? 'selected' : '' }}>6. D2</option>
+          <option value="D1" {{ old('pendidikan_terakhir') == 'D1' ? 'selected' : '' }}>7. D1</option>
+          <option value="SMA/SEDRAJAT" {{ old('pendidikan_terakhir') == 'SMA/SEDRAJAT' ? 'selected' : '' }}>8. SMA/SEDRAJAT</option>
+          <option value="SMP" {{ old('pendidikan_terakhir') == 'SMP' ? 'selected' : '' }}>9. SMP</option>
+          <option value="SD" {{ old('pendidikan_terakhir') == 'SD' ? 'selected' : '' }}>10. SD</option>
         </select>
         @error('pendidikan_terakhir')
         <div class="invalid-feedback">
@@ -235,7 +235,7 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="universitas_sekolah" class="form-label fw-bold"><span class="text-danger">*</span> Perguruan Tinggi/Universitas atau Sekolah :</label>
-        <input type="text" class="form-control @error('universitas_sekolah') is-invalid @enderror" name="universitas_sekolah" id="universitas_sekolah" placeholder="Universitas Terbuka" required>
+        <input type="text" value="{{ old('universitas_sekolah') }}" class="form-control @error('universitas_sekolah') is-invalid @enderror" name="universitas_sekolah" id="universitas_sekolah" placeholder="Universitas Terbuka" required>
         @error('universitas_sekolah')
         <div class="invalid-feedback">
           {{ $message }}
@@ -244,7 +244,7 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="bidang_usaha" class="form-label fw-bold">Jenis/Bidang Usaha :</label>
-        <input type="text" class="form-control @error('bidang_usaha') is-invalid @enderror" id="bidang_usaha" name="bidang_usaha" placeholder="Sepatu">
+        <input type="text" value="{{ old('bidang_usaha') }}" class="form-control @error('bidang_usaha') is-invalid @enderror" id="bidang_usaha" name="bidang_usaha" placeholder="Sepatu">
         @error('bidang_usaha')
         <div class="invalid-feedback">
           {{ $message }}
