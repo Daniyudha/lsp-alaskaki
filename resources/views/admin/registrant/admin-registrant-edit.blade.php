@@ -25,18 +25,56 @@
                 </div>
             </div>
             <!-- end page title -->
+          <div class="row justify-content-center">
+            <div class="col-lg-8">
+              <div class="card">
+        
+                <div class="card-body">
+                  <h4 class="header-title">Mengupdate Status Pendaftaran</h4>
+                  <p class="card-title-desc">Update status pendaftaran yang sudah di inputkan oleh pendaftar.</p>
+                  <form id="formStatus" method="post" action="{{ route('admin.registrant-update-status', ['registrant' => $registrant->id]) }}">
+                    @csrf
+                    @method('put')
+                    <div class="row justify-content-center">
+                      <div class="col-md-6 mb-4">
+                        <label>Status</label>
+                        <select class="custom-select @error('update_status') is-invalid @enderror" name="update_status" required>
+                          <option value="pending" {{ old('update_status', $registrant->status) == 'pending' ? 'selected' : '' }}> Pending</option>
+                          <option value="success" {{ old('update_status', $registrant->status) == 'success' ? 'selected' : '' }}> Success</option>
+                          <option value="cancel" {{ old('update_status', $registrant->status) == 'cancel' ? 'selected' : '' }}> Cancel</option>
+                        </select>
+                        @error('update_status')
+                        <div class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                        @enderror
+                      </div>
+                    </div>
+                    <div class="container">
+                      <div class="row">
+                        <div class="col text-center">
+                          <button class="btn btn-primary" id="btnSubmit" type="submit">Update Status Pendaftaran</button>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="card">
                         <div class="card-body">
-                            <h4 class="header-title">Mengupdate Kategori</h4>
-                            <p class="card-title-desc">Update kategori yang sudah anda tambahkan.</p>
+                          <h4 class="header-title">Mengupdate Data Pendaftaran</h4>
+                          <p class="card-title-desc">Update data pendaftaran yang sudah di inputkan oleh pendaftar.</p>
   
-                          <form action="{{ route('form-pendaftaran-post') }}" method="post" enctype="multipart/form-data">
+                          <form action="{{ route('registrant.update', ['registrant' => $registrant->id]) }}" method="post" enctype="multipart/form-data">
                             @csrf
+                            @method('put')
                             <div class="container">
                               <label><span class="text-danger">*</span> Pilih Skema Sertifikasi</label>
-                              <select class="form-select form-control @error('skema_sertifikasi') is-invalid @enderror" required name="skema_sertifikasi">
+                              <select class="form-select form-control @error('skema_sertifikasi') is-invalid @enderror" disabled required name="skema_sertifikasi">
                                 <option selected>-- Pilih Skema --</option>
                                 <option value="1" {{ old('skema_sertifikasi', $registrant->skema_sertifikasi) == 1 ? 'selected' : '' }}>1. MENJAHIT ALAS KAKI</option>
                                 <option value="2" {{ old('skema_sertifikasi', $registrant->skema_sertifikasi) == 2 ? 'selected' : '' }}>2. PEMBUATAN POLA SECARA MANUAL</option>
@@ -66,11 +104,11 @@
                                 <label><span class="text-danger">*</span> Jenis Uji</label>
                                 <br>
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" {{ $checkType == 'sertifikasi' ? 'checked' : '' }} type="radio" name="jenis_uji" id="jenis_uji_S" value="sertifikasi" required>
+                                  <input class="form-check-input" disabled {{ $checkType == 'sertifikasi' ? 'checked' : '' }} type="radio" name="jenis_uji" id="jenis_uji_S" value="sertifikasi" required>
                                   <label class="form-check-label" for="jenis_uji_S">SERTIFIKASI</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                  <input class="form-check-input" {{ $checkType == 'rcc' ? 'checked' : '' }} type="radio" name="jenis_uji" id="jenis_uji_R" value="rcc" required>
+                                  <input class="form-check-input" disabled {{ $checkType == 'rcc' ? 'checked' : '' }} type="radio" name="jenis_uji" id="jenis_uji_R" value="rcc" required>
                                   <label class="form-check-label" for="jenis_uji_R">RCC</label>
                                 </div>
                                 @error('jenis_uji')
@@ -164,9 +202,6 @@
                                 <div class="input-group date" id="datepicker">
                                   <input type="date" value="{{ old('tanggal_lahir', $registrant->tanggal_lahir) }}"
                                          class="form-control @error('tanggal_lahir') is-invalid @enderror" id="tanggal_lahir" name="tanggal_lahir" required>
-                                  <span class="input-group-append">
-                                    <i class="fa fa-calendar"></i>
-                                  </span>
                                 </div>
                                 @error('tanggal_lahir')
                                 <div class="invalid-feedback">
@@ -281,8 +316,10 @@
                                 <p class="fw-bold text-white mb-0">Unggah Dokumen (format gambar)</p>
                               </div>
                               <div class="mt-3 mb-3">
-                                <label for="foto_ktp" class="form-label fw-bold"><span class="text-danger">*</span> Upload Foto Ktp</label>
-                                <input type="file" class="form-control @error('foto_ktp') is-invalid @enderror" id="foto_ktp" name="foto_ktp" required>
+                                <label for="foto_ktp" class="form-label fw-bold"> Upload Foto Ktp
+                                  <a href="{{ asset('storage/foto_ktp/'.$registrant->foto_ktp) }}" target="_blank"><span class="text-info">Lihat</span></a>
+                                </label>
+                                <input type="file" class="form-control @error('foto_ktp') is-invalid @enderror" id="foto_ktp" name="foto_ktp">
                                 @error('foto_ktp')
                                 <div class="invalid-feedback">
                                   {{ $message }}
@@ -290,8 +327,10 @@
                                 @enderror
                               </div>
                               <div class="mt-3 mb-3">
-                                <label for="foto_ijazah" class="form-label fw-bold"><span class="text-danger">*</span> Upload Foto Ijazah</label>
-                                <input type="file" class="form-control @error('foto_ijazah') is-invalid @enderror" id="foto_ijazah" name="foto_ijazah" required>
+                                <label for="foto_ijazah" class="form-label fw-bold"> Upload Foto Ijazah
+                                  <a href="{{ asset('storage/foto_ijazah/'.$registrant->foto_ijazah) }}" target="_blank"><span class="text-info">Lihat</span></a>
+                                </label>
+                                <input type="file" class="form-control @error('foto_ijazah') is-invalid @enderror" id="foto_ijazah" name="foto_ijazah">
                                 @error('foto_ijazah')
                                 <div class="invalid-feedback">
                                   {{ $message }}
@@ -299,7 +338,11 @@
                                 @enderror
                               </div>
                               <div class="mt-3 mb-3">
-                                <label for="sertifikat_pelatihan" class="form-label fw-bold">Upload Foto Sertifikat Prlatihan (Opsional)</label>
+                                <label for="sertifikat_pelatihan" class="form-label fw-bold">Upload Foto Sertifikat Prlatihan (Opsional)
+                                  @if($registrant->sertifikat_pelatihan)
+                                    <a href="{{ asset('storage/sertifikat_pelatihan/'.$registrant->sertifikat_pelatihan) }}" target="_blank"><span class="text-info">Lihat</span></a>
+                                  @endif
+                                </label>
                                 <input type="file" class="form-control @error('sertifikat_pelatihan') is-invalid @enderror" id="sertifikat_pelatihan" name="sertifikat_pelatihan">
                                 @error('sertifikat_pelatihan')
                                 <div class="invalid-feedback">
@@ -309,7 +352,7 @@
                               </div>
                             </div>
                             <div class="container mb-5 form-group text-center">
-                              <button type="submit" class="btn btn-form btn-warning w-100 text-white">Update Data</button>
+                              <button type="submit" class="btn btn-form btn-warning w-100 text-white">Update Data Pendaftaran</button>
                             </div>
                           </form>
                         </div>
@@ -317,7 +360,7 @@
                 </div>
             </div>
             <!-- end row -->
-
+          </div>
             <!-- end row -->
 
         </div> <!-- container-fluid -->

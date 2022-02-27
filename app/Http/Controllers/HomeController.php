@@ -98,7 +98,8 @@ class HomeController extends Controller {
 	}
 
 	public function peserta(){
-		$registrants = Registrant::all();
+		$registrants = Registrant::query()
+			->where('status', 'pending')->get();
 		$data = [
 			'title' => 'Peserta Kompetensi',
 			'registrants' => $registrants
