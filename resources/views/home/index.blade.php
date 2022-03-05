@@ -181,46 +181,28 @@
       <div class="container">
         <div class="row pt-5">
           <div class="col-12">
-            <h3 class="text-uppercase border-bottom mb-4">News</h3>
+            <h3 class="text-uppercase border-bottom mb-4">Artikel</h3>
           </div>
         </div>
         <div class="row">
-          <!--ADD CLASSES HERE d-flex align-items-stretch-->
-          <div class="col-lg-4 col-md-4 mb-3 d-flex align-items-stretch">
+          @foreach($articles as $article)
+            <div class="col-lg-4 col-md-4 col-sm-6 mb-3 d-flex align-items-stretch">
             <div class="card">
-              <img src="https://i.postimg.cc/28PqLLQC/dotonburi-canal-osaka-japan-700.jpg" class="card-img-top" alt="Card Image">
+              <img src="{{ asset('storage/news_image/'.$article->image) }}" class="card-img-top" alt="Gambar Artikel {{ $article->title }}">
               <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Dōtonbori Canal</h5>
-                <p class="card-text mb-4">Is a manmade waterway dug in the early 1600's and now displays many landmark commercial locals and vivid neon signs.</p>
-                <a href="#" class="btn btn-primary mt-auto align-self-start">Selengkapnya</a>
+                <h5 class="card-title"><a target="_blank" href="{{ route('home.article-detail', ['slug' => $article->slug]) }}"
+                                          style="text-decoration: none; color: black;">{{ $article->title }}</a></h5>
+                <small data-toggle="tooltip" data-placement="auto" title="{{ \Carbon\Carbon::parse($article->created_at)->format('d-m-Y H:i') }}"
+                       class="text-muted mb-2">{{ \Carbon\Carbon::parse($article->created_at)->diffForHumans() }}</small>
+                <p class="card-text mb-4">{{ $article->content_thumbnail }}</p>
+                <a href="{{ route('home.article-detail', ['slug' => $article->slug]) }}" class="btn btn-primary mt-auto align-self-start">Selengkapnya</a>
               </div>
             </div>
           </div>
-          <!--ADD CLASSES HERE d-flex align-items-stretch-->
-          <div class="col-lg-4 col-md-4 mb-3 d-flex align-items-stretch">
-            <div class="card">
-              <img src="https://i.postimg.cc/4xVY64PV/porto-timoni-double-beach-corfu-greece-700.jpg" class="card-img-top" alt="Card Image">
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Porto Timoni Double Beach</h5>
-                <p class="card-text mb-4">Near Afionas village, on the west coast of Corfu island. The two beaches form two unique bays. The turquoise color of the sea contrasts to the high green hills surrounding it.</p>
-                <a href="#" class="btn btn-primary mt-auto align-self-start">Selengkapnya</a>
-              </div>
-            </div>
-          </div>
-          <!--ADD CLASSES HERE d-flex align-items-stretch-->
-          <div class="col-lg-4 col-md-4 mb-3 d-flex align-items-stretch">
-            <div class="card">
-              <img src="https://i.postimg.cc/TYyLPJWk/tritons-fountain-valletta-malta-700.jpg" class="card-img-top" alt="Card Image">
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">Tritons Fountain</h5>
-                <p class="card-text mb-4">Located just outside the City Gate of Valletta, Malta. It consists of three bronze Tritons holding up a large basin, balanced on a concentric base built out of concrete and clad in travertine slabs.</p>
-                <a href="#" class="btn btn-primary mt-auto align-self-start">Selengkapnya</a>
-              </div>
-            </div>
-          </div>
+          @endforeach
         </div>
         <div class="text-center mt-3">
-          <a href="{{ url('artikel') }}" class="btn btn-warning mt-auto align-self-start">Selengkapnya</a>
+          <a target="_blank" href="{{ url('artikel') }}" class="btn btn-warning mt-auto align-self-start">Lihat Semua Artikel</a>
         </div>
       </div>
     </section>

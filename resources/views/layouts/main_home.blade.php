@@ -87,7 +87,9 @@
           </ul>
         </li>
         <li><a class="nav-link scrollto" href="{{ url('kontak') }}">KONTAK KAMI</a></li>
-        <a href="{{ url('form-pendaftaran') }}" target="_blank"><button type="button" class="btn btn-warning">Daftar Sekarang</button></a>
+        <li>
+          <a href="{{ url('form-pendaftaran') }}" target="_blank"><button type="button" class="btn btn-warning">Daftar Sekarang</button></a>
+        </li>
       </ul>
       <i class="bi bi-list mobile-nav-toggle"></i>
     </nav>

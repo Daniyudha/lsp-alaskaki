@@ -35,8 +35,8 @@ Route::get('/tempat', [HomeController::class, 'tempat']);
 Route::get('/pemegang', [HomeController::class, 'pemegang']);
 Route::get('/laporan', [HomeController::class, 'laporan']);
 Route::get('/upload', [HomeController::class, 'upload']);
-Route::get('/artikel', [HomeController::class, 'artikel']);
-Route::get('/artikel-detail', [HomeController::class, 'artikel_detail']);
+Route::get('/artikel', [HomeController::class, 'artikel'])->name('home.article');
+Route::get('/artikel-detail/{slug}', [HomeController::class, 'artikel_detail'])->name('home.article-detail');
 
 Route::post('/form-pendaftaran-post', [HomeController::class, 'form_pendaftaran_post'])
 	->name('form-pendaftaran-post');

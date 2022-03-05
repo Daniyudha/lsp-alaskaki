@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateRegistrantRequest;
+use App\Models\Article;
 use App\Models\Registrant;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -11,7 +12,8 @@ class HomeController extends Controller {
 
 	public function index() {
 		$data = [
-			'title' => 'Welcome'
+			'title' => 'Welcome',
+			'articles' => Article::query()->limit(3)->inRandomOrder()->get()
 		];
 
 		return view('home.index', $data);
@@ -152,16 +154,23 @@ class HomeController extends Controller {
 	}
 
 	public function artikel(){
+		$article = Article::query()
+			->paginate(9);
 		$data = [
-			'title' => 'Artikel'
+			'title' => 'Artikel',
+			'articles' => $article
 		];
 
 		return view('home.artikel', $data);
 	}
 
-	public function artikel_detail(){
+	public function artikel_detail($slug){
+		$article = Article::query()
+			->where('slug', $slug)
+			->first();
 		$data = [
-			'title' => 'Artikel'
+			'title' => 'Artikel '.$article->title,
+			'article' => $article
 		];
 
 		return view('home.artikel-detail', $data);
