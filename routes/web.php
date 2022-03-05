@@ -49,6 +49,8 @@ Route::post('/login', [AuthController::class, 'loginPost'])->name('login.post')
 	->middleware('guest');
 
 Route::prefix('dashboard')->middleware('auth')->group(function (){
+	Route::resource('news', '\App\Http\Controllers\ArticleController');
+
 	Route::get('/', [AdminController::class, 'index'])->name('dashboard.admin');
 	Route::get('/registrant', [RegistrantController::class, 'index'])->name('registrant.index');
 	Route::get('/registrant/{registrant}/edit', [RegistrantController::class, 'edit'])->name('registrant.edit');
