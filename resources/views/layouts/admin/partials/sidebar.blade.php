@@ -22,6 +22,12 @@
                         <span>Data Registrant</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ route('export.registrants-view') }}" class="waves-effect">
+                        <i class="mdi mdi-file-excel"></i>
+                        <span>Export</span>
+                    </a>
+                </li>
                 <li class="menu-title">Alat</li>
                 <li>
                     <a href="{{ route('logout') }}" class=" waves-effect">

@@ -56,4 +56,11 @@ Route::prefix('dashboard')->middleware('auth')->group(function (){
 	Route::delete('/registrant/{registrant}/delete', [RegistrantController::class, 'destroy'])->name('registrant.destroy');
 	Route::put('/registrant/{registrant}/update-status', [RegistrantController::class, 'updateStatusRegistrant'])
 		->name('admin.registrant-update-status');
+
+	Route::get('export-registrants', [\App\Http\Controllers\ExportController::class, 'exportRegistrant'])
+		->name('export.registrants-view');
+	Route::post('export-registrants', [\App\Http\Controllers\ExportController::class, 'exportDataRegistrant'])
+		->name('export.registrants-post');
+	Route::post('export-registrants-all', [\App\Http\Controllers\ExportController::class, 'exportDataRegistrantAll'])
+		->name('export.registrants-all-post');
 });
