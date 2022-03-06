@@ -3,9 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateRegistrantRequest;
+use App\Mail\SendFormMail;
 use App\Models\Article;
 use App\Models\Registrant;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 
 class HomeController extends Controller {
@@ -204,6 +206,7 @@ class HomeController extends Controller {
 		$insert = Registrant::query()->create($dataInsert);
 
 		if($insert->id > 0){
+			@Mail::to(trim($request->email))->send(new SendFormMail($request->jenis_uji, getSchemaCertificate($request->skema_sertifikasi)));
 			$insert->unique_id = setGetUniqueId($insert->id, $insert->jenis_uji, $insert->skema_sertifikasi);
 			$insert->save();
 			session()->flash('message', sweetAlert('Success!','Berhasil mendaftarkan Sertifikasi. Tunggu informasi selanjutnya.','success'));

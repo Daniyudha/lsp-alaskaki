@@ -35,7 +35,7 @@ function getSchemaCertificate($number): string {
 		case 5:
 			return 'PENGEMALAN ALAS KAKI';
 		case 6:
-			return 'PENGKASARAN SEPATU/ ALAS KAKI (ROUGHING)';
+			return 'PENGKASARAN SEPATU/ALAS KAKI (ROUGHING)';
 		case 7:
 			return 'PENGOPENAN ALAS KAKI DENGAN MESIN';
 		case 8:
