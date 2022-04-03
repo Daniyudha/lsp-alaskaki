@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateRegistrantRequest;
-use App\Mail\SendFormMail;
+use App\Mail\SendContactMail;
 use App\Models\Article;
 use App\Models\Registrant;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -94,11 +95,41 @@ class HomeController extends Controller {
 	}
 
 	public function kontak(){
+		//$registrant = [
+		//	'name'	=> 'Rahma',
+		//	'umur' => 18,
+		//	'alamat' => 'Jineman, Girikerto, Turi'
+		//];
+		//
+		//$data["email"] = "cobavoba17@gmail.com";
+		//$data["title"] = "From ItSolutionStuff.com";
+		//$data["body"] = "This is Demo";
+		//$pdf = PDF::loadView('email.form-view', $registrant);
+		//Mail::send('email.form-sending', ['type' => 'RCC', 'title' => getSchemaCertificate(1), 'unique_id' => 'SERTIFIKASI.03.00004'], function($message) use($data, $pdf) {
+		//	$message->to($data["email"], $data["email"])
+		//		->subject($data["title"])
+		//		->attachData($pdf->output(), "text.pdf");
+		//});
+
 		$data = [
 			'title' => 'Kontak Kami'
 		];
 
 		return view('home.kontak', $data);
+	}
+
+	public function kontak_post(Request $request)
+	{
+		$data = [
+			'name' => $request->name,
+			'subject' => $request->subject,
+			'messages' => $request->message,
+			'email' => $request->email
+		];
+
+		Mail::to(trim(getenv('MAIL_USERNAME')))->send(new SendContactMail($data));
+		return redirect()->back()->with('message',
+			sweetAlert('Success!','Berhasil mengirim pesan ke '.getenv('APP_NAME'),'success'));
 	}
 
 	public function peserta(){
@@ -206,7 +237,7 @@ class HomeController extends Controller {
 		$insert = Registrant::query()->create($dataInsert);
 
 		if($insert->id > 0){
-			@Mail::to(trim($request->email))->send(new SendFormMail($request->jenis_uji, getSchemaCertificate($request->skema_sertifikasi)));
+			//@Mail::to(trim($request->email))->send(new SendFormMail($request->jenis_uji, getSchemaCertificate($request->skema_sertifikasi)));
 			$insert->unique_id = setGetUniqueId($insert->id, $insert->jenis_uji, $insert->skema_sertifikasi);
 			$insert->save();
 			session()->flash('message', sweetAlert('Success!','Berhasil mendaftarkan Sertifikasi. Tunggu informasi selanjutnya.','success'));

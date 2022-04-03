@@ -181,7 +181,7 @@
 <script src="{{ asset('home_assets') }}/vendor/isotope-layout/isotope.pkgd.min.js"></script>
 <script src="{{ asset('home_assets') }}/vendor/swiper/swiper-bundle.min.js"></script>
 <script src="{{ asset('home_assets') }}/vendor/waypoints/noframework.waypoints.js"></script>
-<script src="{{ asset('home_assets') }}/vendor/php-email-form/validate.js"></script>
+{{--<script src="{{ asset('home_assets') }}/vendor/php-email-form/validate.js"></script>--}}
 @yield('outJS')
 <!-- Template Main JS File -->
 <script src="{{ asset('home_assets') }}/js/main.js"></script>

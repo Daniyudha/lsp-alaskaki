@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ItsolutionStuff.com</title>
+</head>
+<body>
+<h1>{{ $name }}</h1>
+<p>{{ $umur }}</p>
+<p>{{ $alamat }}</p>
+
+<p>Thank you</p>
+</body>
+</html>

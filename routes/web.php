@@ -29,6 +29,7 @@ Route::get('/struktur-organisasi', [HomeController::class, 'struktur_organisasi'
 Route::get('/visi-dan-misi', [HomeController::class, 'visi_misi']);
 Route::get('/latar-belakang', [HomeController::class, 'latar_belakang']);
 Route::get('/kontak', [HomeController::class, 'kontak']);
+Route::post('/kontak-send-message', [HomeController::class, 'kontak_post'])->name('contact.post');
 Route::get('/peserta', [HomeController::class, 'peserta']);
 Route::get('/skema', [HomeController::class, 'skema']);
 Route::get('/tempat', [HomeController::class, 'tempat']);
