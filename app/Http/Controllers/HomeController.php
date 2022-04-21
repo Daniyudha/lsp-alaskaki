@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateRegistrantRequest;
 use App\Mail\SendContactMail;
 use App\Models\Article;
+use App\Models\Photo;
 use App\Models\Registrant;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
@@ -64,7 +65,11 @@ class HomeController extends Controller {
 
 	public function galeri() {
 		$data = [
-			'title' => 'Galeri'
+			'title' => 'Galeri',
+			'menjahit' => Photo::where('type','menjahit')->get(),
+			'pengemalan' => Photo::where('type','pengemalan')->get(),
+			'pengeleman' => Photo::where('type','pengeleman')->get(),
+			'all' => Photo::all()
 		];
 
 		return view('home.galeri', $data);

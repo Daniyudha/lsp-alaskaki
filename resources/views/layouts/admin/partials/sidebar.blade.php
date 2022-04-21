@@ -33,9 +33,19 @@
             <i class="mdi mdi-newspaper"></i>
             <span>Artikel</span>
           </a>
-          <ul class="sub-menu mm-collapse mm-show" aria-expanded="false" style="">
+          <ul class="sub-menu mm-collapse" aria-expanded="false" style="">
             <li><a href="{{ route('news.index') }}">List Artikel</a></li>
             <li><a href="{{ route('news.create') }}">Tambah Artikel</a></li>
+          </ul>
+        </li>
+        <li>
+          <a href="javascript:(0)" class="has-arrow waves-effect">
+            <i class="mdi mdi-image-multiple"></i>
+            <span>Galeri</span>
+          </a>
+          <ul class="sub-menu mm-collapse" aria-expanded="false" style="">
+            <li><a href="{{ route('gallery.index') }}">List Foto</a></li>
+            <li><a href="{{ route('gallery.create') }}">Tambah Foto</a></li>
           </ul>
         </li>
         <li class="menu-title">Alat</li>
