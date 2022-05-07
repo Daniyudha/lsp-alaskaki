@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 21 Apr 2022 pada 21.02
+-- Waktu pembuatan: 07 Bulan Mei 2022 pada 20.01
 -- Versi server: 8.0.25
 -- Versi PHP: 8.0.15
 
@@ -54,7 +54,7 @@ INSERT INTO `articles` (`id`, `title`, `slug`, `content_thumbnail`, `content_ful
 
 CREATE TABLE `photos` (
   `id` int NOT NULL,
-  `type` enum('menjahit','pengemalan','pengeleman') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
+  `fk_photo_type` int NOT NULL,
   `title` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `descriptions` text COLLATE utf8mb4_general_ci,
   `image` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
@@ -66,10 +66,36 @@ CREATE TABLE `photos` (
 -- Dumping data untuk tabel `photos`
 --
 
-INSERT INTO `photos` (`id`, `type`, `title`, `descriptions`, `image`, `created_at`, `updated_at`) VALUES
-(1, 'menjahit', 'Aku Adalah Saya', 'Nama Saya Adalah nana nina', '1648978980-logo.png', '2022-04-03 09:43:00', '2022-04-03 09:43:00'),
-(3, 'pengemalan', 'Haloo Ya Apa', 'Kereta Kencana', '1650567855-capture.png', '2022-04-03 09:46:29', '2022-04-21 19:04:15'),
-(5, 'pengeleman', 'Test Pengeleman', 'Ngelem itu haram bang', '1650569748-laravel-featured-image.png', '2022-04-21 19:35:48', '2022-04-21 19:35:48');
+INSERT INTO `photos` (`id`, `fk_photo_type`, `title`, `descriptions`, `image`, `created_at`, `updated_at`) VALUES
+(1, 1, 'Aku Adalah Saya', 'Nama Saya Adalah nana nina', '1648978980-logo.png', '2022-04-03 09:43:00', '2022-04-03 09:43:00'),
+(3, 2, 'Haloo Ya Apa', 'Kereta Kencana', '1650567855-capture.png', '2022-04-03 09:46:29', '2022-04-21 19:04:15'),
+(5, 3, 'Test Pengeleman', 'Ngelem itu haram bang', '1650569748-laravel-featured-image.png', '2022-04-21 19:35:48', '2022-04-21 19:35:48'),
+(6, 6, 'Test New', 'XXDSDSD', '1651951360-logo-preview.jpg', '2022-05-07 19:22:40', '2022-05-07 19:22:52');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `photo_types`
+--
+
+CREATE TABLE `photo_types` (
+  `id` int NOT NULL,
+  `name` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `slug` varchar(60) COLLATE utf8mb4_general_ci NOT NULL,
+  `created_at` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `photo_types`
+--
+
+INSERT INTO `photo_types` (`id`, `name`, `slug`, `created_at`, `updated_at`) VALUES
+(1, 'Menjahit', 'menjahit', '2022-05-07 16:21:50', '2022-05-07 16:21:50'),
+(2, 'Pengemalan', 'pengemalan', '2022-05-07 16:21:50', '2022-05-07 16:21:50'),
+(3, 'Pengeleman', 'pengeleman', '2022-05-07 16:22:10', '2022-05-07 16:22:10'),
+(5, 'Testing Wae A', 'testing-wae-a', '2022-05-07 18:17:32', '2022-05-07 19:22:02'),
+(6, 'AABBX', 'aabbx', '2022-05-07 19:22:15', '2022-05-07 19:22:24');
 
 -- --------------------------------------------------------
 
@@ -150,6 +176,13 @@ ALTER TABLE `articles`
 -- Indeks untuk tabel `photos`
 --
 ALTER TABLE `photos`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_photo_type` (`fk_photo_type`);
+
+--
+-- Indeks untuk tabel `photo_types`
+--
+ALTER TABLE `photo_types`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -178,7 +211,13 @@ ALTER TABLE `articles`
 -- AUTO_INCREMENT untuk tabel `photos`
 --
 ALTER TABLE `photos`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT untuk tabel `photo_types`
+--
+ALTER TABLE `photo_types`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `registrants`
@@ -191,6 +230,16 @@ ALTER TABLE `registrants`
 --
 ALTER TABLE `users`
   MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `photos`
+--
+ALTER TABLE `photos`
+  ADD CONSTRAINT `photos_ibfk_1` FOREIGN KEY (`fk_photo_type`) REFERENCES `photo_types` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
