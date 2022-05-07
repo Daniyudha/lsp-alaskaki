@@ -274,7 +274,7 @@
         @enderror
       </div>
       <div class="mt-3 mb-3">
-        <label for="sertifikat_pelatihan" class="form-label fw-bold">Upload Foto Sertifikat Prlatihan (Opsional)</label>
+        <label for="sertifikat_pelatihan" class="form-label fw-bold">Upload Foto Sertifikat Pelatihan (Opsional)</label>
         <input type="file" class="form-control @error('sertifikat_pelatihan') is-invalid @enderror" id="sertifikat_pelatihan" name="sertifikat_pelatihan">
         @error('sertifikat_pelatihan')
         <div class="invalid-feedback">

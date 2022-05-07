@@ -21,47 +21,25 @@
           <div class="col-lg-12 d-flex justify-content-center">
             <ul id="portfolio-flters">
               <li data-filter="*" class="filter-active">Semua</li>
-              <li data-filter=".filter-menjahit">Menjahit</li>
-              <li data-filter=".filter-pengemalan">Pengemalan</li>
-              <li data-filter=".filter-pengeleman">Pengeleman</li>
+              @foreach($types as $type)
+                <li data-filter=".filter-{{ $type->slug }}">{{ $type->name }}</li>
+              @endforeach
             </ul>
           </div>
         </div>
         
         <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
           
-          @foreach($menjahit as $item)
-          <div class="col-lg-4 col-md-6 portfolio-item filter-menjahit">
-            <img src="{{ asset('storage/gallery/'.$item->image) }}" class="img-fluid" alt="Foto {{ $item->title }}">
+          @foreach($photos as $photo)
+          <div class="col-lg-4 col-md-6 portfolio-item filter-{{ $photo->photo_type->slug }}">
+            <img src="{{ asset('storage/gallery/'.$photo->image) }}" class="img-fluid" alt="Foto {{ $photo->title }}">
             <div class="portfolio-info">
-              <h4>{{ $item->title }}</h4>
-              <p>{{ $item->descriptions }}</p>
-              <a href="{{ asset('storage/gallery/'.$item->image) }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i class="bx bx-zoom-in"></i></a>
+              <h4>{{ $photo->title }}</h4>
+              <p>{{ $photo->descriptions }}</p>
+              <a href="{{ asset('storage/gallery/'.$photo->image) }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i class="bx bx-zoom-in"></i></a>
             </div>
           </div>
           @endforeach
-  
-            @foreach($pengemalan as $item)
-              <div class="col-lg-4 col-md-6 portfolio-item filter-pengemalan">
-                <img src="{{ asset('storage/gallery/'.$item->image) }}" class="img-fluid" alt="Foto {{ $item->title }}">
-                <div class="portfolio-info">
-                  <h4>{{ $item->title }}</h4>
-                  <p>{{ $item->descriptions }}</p>
-                  <a href="{{ asset('storage/gallery/'.$item->image) }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i class="bx bx-zoom-in"></i></a>
-                </div>
-              </div>
-            @endforeach
-  
-            @foreach($pengeleman as $item)
-              <div class="col-lg-4 col-md-6 portfolio-item filter-pengeleman">
-                <img src="{{ asset('storage/gallery/'.$item->image) }}" class="img-fluid" alt="Foto {{ $item->title }}">
-                <div class="portfolio-info">
-                  <h4>{{ $item->title }}</h4>
-                  <p>{{ $item->descriptions }}</p>
-                  <a href="{{ asset('storage/gallery/'.$item->image) }}" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link"><i class="bx bx-zoom-in"></i></a>
-                </div>
-              </div>
-            @endforeach
         </div>
       </div>
     </section>

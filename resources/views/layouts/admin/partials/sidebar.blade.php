@@ -46,6 +46,7 @@
           <ul class="sub-menu mm-collapse" aria-expanded="false" style="">
             <li><a href="{{ route('gallery.index') }}">List Foto</a></li>
             <li><a href="{{ route('gallery.create') }}">Tambah Foto</a></li>
+            <li><a href="{{ route('gallery-category.index') }}">Tambah Kategori</a></li>
           </ul>
         </li>
         <li class="menu-title">Alat</li>

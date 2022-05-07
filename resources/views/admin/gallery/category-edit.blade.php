@@ -30,65 +30,41 @@
         </div>
       </div>
       <!-- end page title -->
-      
-      <div class="row">
-        <div class="col-12">
+      <div class="row justify-content-center">
+        <div class="col-lg-12">
           <div class="card">
+        
             <div class="card-body">
-              
-              <h4 class="header-title">{{ $title }}</h4>
-              <p>List Foto yang sudah ditambahkan</p>
-              <table id="datatable" class="table table-bordered dt-responsive nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
-                <thead>
-                <tr>
-                  <th>ID</th>
-                  <th>Judul</th>
-                  <th>Kategori</th>
-                  <th class="text-center">Dibuat</th>
-                  <th class="text-center">Aksi</th>
-                </tr>
-                </thead>
-                
-                
-                <tbody>
-                
-                @foreach($photos as $photo)
-                  <tr>
-                    <td data-order="{{ $photo->id }}">{{ $photo->id }}</td>
-                    <td>
-                      {{ $photo->title }}
-                    </td>
-                    <td>
-                      {{ $photo->photo_type->name }}
-                    </td>
-                    <td class="text-center">
-                      <span data-toggle="tooltip" data-placement="top" title="{{ \Carbon\Carbon::parse($photo->created_at)->diffForHumans() }}">
-                        {{ \Carbon\Carbon::parse($photo->created_at)->format('d-m-Y H:i') }}
-                      </span>
-                    </td>
-                    <td class="text-center">
-                      <div class="btn-group btn-group-sm mt-1 mr-1 dropright" style="z-index: 999999;">
-                        <button type="button" class="btn btn-secondary waves-effect waves-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="mdi mdi-chevron-down"></i> Pilihan
-                        </button>
-                        <div class="dropdown-menu">
-                          <a class="dropdown-item" href="{{ route('gallery.edit',['gallery' => $photo->id]) }}">Detail Foto</a>
-                          <div class="dropdown-divider"></div>
-                          <a class="dropdown-item btn_delete" data-nama="{{ $photo->title }}"
-                             data-href="{{ route('gallery.destroy', ['gallery' => $photo->id]) }}"
-                             href="javascript:0;">Hapus Foto</a>
-                        </div>
-                      </div>
-                    </td>
-                  </tr>
-                @endforeach
-                </tbody>
-              </table>
-            
+              <h4 class="header-title">Tambahkan Kategori Foto ke Galeri</h4>
+              <p class="card-title-desc">Kategori Foto kegiatan pada {{ getenv('APP_NAME') }}, untuk dilihat oleh pengunjung website.</p>
+              <form id="form-add-news" method="post" action="{{ route('gallery-category.edit',['photo_type' => $type->id]) }}">
+                @method('put')
+                @csrf
+                <div class="row justify-content-center">
+                  <div class="col-md-4 mb-4">
+                    <label><span class="text-danger">*</span> Judul</label>
+                    <input type="text" name="name" placeholder="Judul kategori.."
+                           minlength="3" maxlength="50"
+                           value="{{ old('name', $type->name) }}" class="form-control @error('name') is-invalid @enderror" required>
+                    @error('name')
+                    <div class="invalid-feedback">
+                      {{ $message }}
+                    </div>
+                    @enderror
+                  </div>
+                </div>
+                <div class="container">
+                  <div class="row">
+                    <div class="col text-center">
+                      <button class="btn btn-primary" id="btnSubmit" type="submit">Tambahkan Katrgori Foto</button>
+                    </div>
+                  </div>
+                </div>
+              </form>
             </div>
           </div>
-        </div> <!-- end col -->
-      </div> <!-- end row -->
+        </div>
+      </div>
       <!-- end row -->
       
       <!-- end row -->

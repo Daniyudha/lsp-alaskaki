@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Article;
 use App\Models\Photo;
+use App\Models\PhotoType;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -22,8 +23,11 @@ class PhotoController extends Controller
     public function create()
     {
 			$data = [
-				'title' => 'Tambahkan Foto'
+				'title' => 'Tambahkan Foto',
+				'types' => PhotoType::all()
 			];
+
+			//dd($data);
 
 			return view('admin.gallery.add', $data);
     }
@@ -32,7 +36,7 @@ class PhotoController extends Controller
     {
 			$insert = Photo::create([
 				'title' => ucwords($request->title),
-				'type' => $request->type,
+				'fk_photo_type' => $request->type,
 				'descriptions' => ucfirst($request->descriptions) ?? NULL,
 				'image' => $this->imageRequestCreate($request)
 			]);
@@ -57,7 +61,8 @@ class PhotoController extends Controller
     {
 			$data = [
 				'title' => 'Edit Foto '.$gallery->title,
-				'photo' => $gallery
+				'photo' => $gallery,
+				'types' => PhotoType::all()
 			];
 
 			return view('admin.gallery.edit', $data);
@@ -67,7 +72,7 @@ class PhotoController extends Controller
     {
 			$update = Photo::query()->where('id', $gallery->id)->update([
 				'title' => ucwords($request->title),
-				'type' => $request->type,
+				'fk_photo_type' => $request->type,
 				'descriptions' => ucfirst($request->descriptions) ?? NULL,
 				'image' => $this->imageRequestUpdate($request, $gallery)
 			]);

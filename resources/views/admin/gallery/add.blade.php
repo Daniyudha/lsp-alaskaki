@@ -46,10 +46,10 @@
                   </div>
                   <div class="col-md-4 mb-4">
                     <label><span class="text-danger">*</span> Kategori</label>
-                    <select type="text" name="type" class="form-control @error('title') is-invalid @enderror" required>
-                      <option value="menjahit" {{ old('type') == 'menjahit' ? 'selected' : '' }}>Menjahit</option>
-                      <option value="pengemalan" {{ old('type') == 'pengemalan' ? 'selected' : '' }}>Pengemalan</option>
-                      <option value="pengeleman" {{ old('type') == 'pengeleman' ? 'selected' : '' }}>Pengeleman</option>
+                    <select type="text" name="type" class="form-control @error('type') is-invalid @enderror" required>
+                      @foreach($types as $type)
+                        <option value="{{ $type->id }}" {{ old('type') == $type->id ? 'selected' : '' }}>{{ $type->name }}</option>
+                      @endforeach
                     </select>
                     @error('type')
                     <div class="invalid-feedback">

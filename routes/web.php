@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PhotoTypeController;
 use App\Http\Controllers\RegistrantController;
 use Illuminate\Support\Facades\Route;
 
@@ -55,6 +56,13 @@ Route::prefix('dashboard')->middleware('auth')->group(function (){
 	Route::resource('gallery', '\App\Http\Controllers\PhotoController');
 
 	Route::get('/', [AdminController::class, 'index'])->name('dashboard.admin');
+
+	Route::get('/gallery-category', [PhotoTypeController::class, 'index'])->name('gallery-category.index');
+	Route::post('/gallery-category/create', [PhotoTypeController::class, 'store'])->name('gallery-category.store');
+	Route::get('/gallery-category/{photo_type}/edit', [PhotoTypeController::class, 'edit'])->name('gallery-category.edit');
+	Route::put('/gallery-category/{photo_type}/edit', [PhotoTypeController::class, 'update'])->name('gallery-category.update');
+	Route::delete('/gallery-category/{photo_type}/delete', [PhotoTypeController::class, 'destroy'])->name('gallery-category.delete');
+
 	Route::get('/registrant', [RegistrantController::class, 'index'])->name('registrant.index');
 	Route::get('/registrant/{registrant}/edit', [RegistrantController::class, 'edit'])->name('registrant.edit');
 	Route::put('/registrant/{registrant}/edit', [RegistrantController::class, 'update'])->name('registrant.update');
