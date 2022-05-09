@@ -8,7 +8,7 @@ use App\Models\Article;
 use App\Models\Photo;
 use App\Models\PhotoType;
 use App\Models\Registrant;
-use Barryvdh\DomPDF\Facade\Pdf;
+use Barryvdh\Snappy\Facades\SnappyPdf as PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
@@ -99,22 +99,6 @@ class HomeController extends Controller {
 	}
 
 	public function kontak(){
-		//$registrant = [
-		//	'name'	=> 'Rahma',
-		//	'umur' => 18,
-		//	'alamat' => 'Jineman, Girikerto, Turi'
-		//];
-		//
-		//$data["email"] = "cobavoba17@gmail.com";
-		//$data["title"] = "From ItSolutionStuff.com";
-		//$data["body"] = "This is Demo";
-		//$pdf = PDF::loadView('email.form-view', $registrant);
-		//Mail::send('email.form-sending', ['type' => 'RCC', 'title' => getSchemaCertificate(1), 'unique_id' => 'SERTIFIKASI.03.00004'], function($message) use($data, $pdf) {
-		//	$message->to($data["email"], $data["email"])
-		//		->subject($data["title"])
-		//		->attachData($pdf->output(), "text.pdf");
-		//});
-
 		$data = [
 			'title' => 'Kontak Kami'
 		];
@@ -218,21 +202,21 @@ class HomeController extends Controller {
 			'skema_sertifikasi' => $request->skema_sertifikasi,
 			'jenis_uji' => $request->jenis_uji,
 			'no_ktp' => $request->no_ktp,
-			'nama_lengkap' => $request->nama_lengkap,
-			'jenis_kelamin' => $request->jenis_kelamin,
+			'nama_lengkap' => ucwords($request->nama_lengkap),
+			'jenis_kelamin' => ucwords($request->jenis_kelamin),
 			'no_hp' => $request->no_hp,
-			'email' => $request->email,
-			'tempat_lahir' => $request->tempat_lahir,
+			'email' => strtolower($request->email),
+			'tempat_lahir' => ucwords($request->tempat_lahir),
 			'tanggal_lahir' => $request->tanggal_lahir,
-			'provinsi' => $request->provinsi,
-			'kabupaten' => $request->kabupaten,
-			'kecamatan' => $request->kecamatan,
-			'kelurahan' => $request->kelurahan,
+			'provinsi' => ucwords($request->provinsi),
+			'kabupaten' => ucwords($request->kabupaten),
+			'kecamatan' => ucwords($request->kecamatan),
+			'kelurahan' => ucwords($request->kelurahan),
 			'kode_pos' => $request->kode_pos,
-			'alamat_sesuai_ktp' => $request->alamat_sesuai_ktp,
+			'alamat_sesuai_ktp' => ucwords($request->alamat_sesuai_ktp),
 			'pendidikan_terakhir' => $request->pendidikan_terakhir,
-			'universitas_sekolah' => $request->universitas_sekolah,
-			'bidang_usaha' => $request->bidang_usaha,
+			'universitas_sekolah' => ucwords($request->universitas_sekolah),
+			'bidang_usaha' => ucwords($request->bidang_usaha),
 			'foto_ktp' => $this->imageRequestCreate($request, 'foto_ktp'),
 			'foto_ijazah' => $this->imageRequestCreate($request, 'foto_ijazah'),
 			'sertifikat_pelatihan' => $this->imageRequestCreate($request, 'sertifikat_pelatihan')
@@ -241,10 +225,29 @@ class HomeController extends Controller {
 		$insert = Registrant::query()->create($dataInsert);
 
 		if($insert->id > 0){
-			//@Mail::to(trim($request->email))->send(new SendFormMail($request->jenis_uji, getSchemaCertificate($request->skema_sertifikasi)));
 			$insert->unique_id = setGetUniqueId($insert->id, $insert->jenis_uji, $insert->skema_sertifikasi);
 			$insert->save();
-			session()->flash('message', sweetAlert('Success!','Berhasil mendaftarkan Sertifikasi. Tunggu informasi selanjutnya.','success'));
+
+			$data['email'] = $insert->email;
+			$data['title'] = 'Form Pendaftaran LSP Alaskaki';
+			$data['unique_id'] = $insert->unique_id;
+
+			$pdf = PDF::loadView('email.form-view', $insert);
+
+			Mail::send('email.form-sending',
+				[
+					'type' => strtoupper($insert->jenis_uji),
+					'title' => getSchemaCertificate($insert->skema_sertifikasi),
+					'unique_id' => $insert->unique_id
+				], function($message) use($data, $pdf) {
+					$message->to($data['email'], $data['email'])
+						->subject($data['title'])
+						->attachData($pdf->output(), 'Form Pendaftaran '. $data['unique_id'].'.pdf');
+				}
+			);
+
+			session()->flash('message', sweetAlert('Success!','Berhasil mendaftarkan Sertifikasi, silahkan cek Email Anda. Tunggu informasi selanjutnya.','success'));
+			session()->flash('messageBS', true);
 		} else {
 			session()->flash('message', sweetAlert('Upss!','Gagal mendaftarkan Sertifikasi','error'));
 		}

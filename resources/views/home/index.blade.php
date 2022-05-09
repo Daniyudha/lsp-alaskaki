@@ -107,74 +107,74 @@
     <!-- End Counts Section -->
     
     <!-- Swiper Bidang Keahlian-->
-    <div class="container" data-aos="fade-up">
-      <div class="section-title">
-        <h3>Bidang Keahlian yang di <span>Sertifikasi</span></h3>
-      </div>
-    </div>
-    <div id="featured-services" class="swiper mySwiper featured-services">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide">
-          <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="bx bxl-dribbble"></i></div>
-            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><i class="bx bx-file"></i></div>
-            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon"><i class="bx bx-tachometer"></i></div>
-            <h4 class="title"><a href="">Magni Dolores</a></h4>
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon"><i class="bx bx-world"></i></div>
-            <h4 class="title"><a href="">Nemo Enim</a></h4>
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="icon-box" data-aos="fade-up" data-aos-delay="100">
-            <div class="icon"><i class="bx bxl-dribbble"></i></div>
-            <h4 class="title"><a href="">Lorem Ipsum</a></h4>
-            <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="icon-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="icon"><i class="bx bx-file"></i></div>
-            <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>
-            <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="icon-box" data-aos="fade-up" data-aos-delay="300">
-            <div class="icon"><i class="bx bx-tachometer"></i></div>
-            <h4 class="title"><a href="">Magni Dolores</a></h4>
-            <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-          </div>
-        </div>
-        <div class="swiper-slide">
-          <div class="icon-box" data-aos="fade-up" data-aos-delay="400">
-            <div class="icon"><i class="bx bx-world"></i></div>
-            <h4 class="title"><a href="">Nemo Enim</a></h4>
-            <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-          </div>
-        </div>
-      </div>
-      <div class="swiper-button-next"></div>
-      <div class="swiper-button-prev"></div>
-      <div class="swiper-pagination"></div>
-    </div>
+    {{--<div class="container" data-aos="fade-up">--}}
+    {{--  <div class="section-title">--}}
+    {{--    <h3>Bidang Keahlian yang di <span>Sertifikasi</span></h3>--}}
+    {{--  </div>--}}
+    {{--</div>--}}
+    {{--<div id="featured-services" class="swiper mySwiper featured-services">--}}
+    {{--  <div class="swiper-wrapper">--}}
+    {{--    <div class="swiper-slide">--}}
+    {{--      <div class="icon-box" data-aos="fade-up" data-aos-delay="100">--}}
+    {{--        <div class="icon"><i class="bx bxl-dribbble"></i></div>--}}
+    {{--        <h4 class="title"><a href="">Lorem Ipsum</a></h4>--}}
+    {{--        <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>--}}
+    {{--      </div>--}}
+    {{--    </div>--}}
+    {{--    <div class="swiper-slide">--}}
+    {{--      <div class="icon-box" data-aos="fade-up" data-aos-delay="200">--}}
+    {{--        <div class="icon"><i class="bx bx-file"></i></div>--}}
+    {{--        <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>--}}
+    {{--        <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>--}}
+    {{--      </div>--}}
+    {{--    </div>--}}
+    {{--    <div class="swiper-slide">--}}
+    {{--      <div class="icon-box" data-aos="fade-up" data-aos-delay="300">--}}
+    {{--        <div class="icon"><i class="bx bx-tachometer"></i></div>--}}
+    {{--        <h4 class="title"><a href="">Magni Dolores</a></h4>--}}
+    {{--        <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>--}}
+    {{--      </div>--}}
+    {{--    </div>--}}
+    {{--    <div class="swiper-slide">--}}
+    {{--      <div class="icon-box" data-aos="fade-up" data-aos-delay="400">--}}
+    {{--        <div class="icon"><i class="bx bx-world"></i></div>--}}
+    {{--        <h4 class="title"><a href="">Nemo Enim</a></h4>--}}
+    {{--        <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>--}}
+    {{--      </div>--}}
+    {{--    </div>--}}
+    {{--    <div class="swiper-slide">--}}
+    {{--      <div class="icon-box" data-aos="fade-up" data-aos-delay="100">--}}
+    {{--        <div class="icon"><i class="bx bxl-dribbble"></i></div>--}}
+    {{--        <h4 class="title"><a href="">Lorem Ipsum</a></h4>--}}
+    {{--        <p class="description">Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>--}}
+    {{--      </div>--}}
+    {{--    </div>--}}
+    {{--    <div class="swiper-slide">--}}
+    {{--      <div class="icon-box" data-aos="fade-up" data-aos-delay="200">--}}
+    {{--        <div class="icon"><i class="bx bx-file"></i></div>--}}
+    {{--        <h4 class="title"><a href="">Sed ut perspiciatis</a></h4>--}}
+    {{--        <p class="description">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>--}}
+    {{--      </div>--}}
+    {{--    </div>--}}
+    {{--    <div class="swiper-slide">--}}
+    {{--      <div class="icon-box" data-aos="fade-up" data-aos-delay="300">--}}
+    {{--        <div class="icon"><i class="bx bx-tachometer"></i></div>--}}
+    {{--        <h4 class="title"><a href="">Magni Dolores</a></h4>--}}
+    {{--        <p class="description">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>--}}
+    {{--      </div>--}}
+    {{--    </div>--}}
+    {{--    <div class="swiper-slide">--}}
+    {{--      <div class="icon-box" data-aos="fade-up" data-aos-delay="400">--}}
+    {{--        <div class="icon"><i class="bx bx-world"></i></div>--}}
+    {{--        <h4 class="title"><a href="">Nemo Enim</a></h4>--}}
+    {{--        <p class="description">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>--}}
+    {{--      </div>--}}
+    {{--    </div>--}}
+    {{--  </div>--}}
+    {{--  <div class="swiper-button-next"></div>--}}
+    {{--  <div class="swiper-button-prev"></div>--}}
+    {{--  <div class="swiper-pagination"></div>--}}
+    {{--</div>--}}
     <!-- End Swiper Bidang Keahlian-->
 
     <section class="pt-5 pb-5 ">

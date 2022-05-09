@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FR.APL01</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #FAFAFA;
+        font: 12pt "Tahoma";
+    }
+    
+    * {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+    }
+    
+    .page {
+        width: 21cm;
+        min-height: 29.7cm;
+        padding: 2cm;
+        margin: 1cm auto;
+        border: 1px #D3D3D3 solid;
+        border-radius: 5px;
+        background: white;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    }
+    /* .wrap {
+        word-text-break: break-word;
+        min-width: 160px;
+        max-width: 160px;
+    } */
+    
+    .tab {
+        margin-left: 16px;
+    }
+    
+    @page {
+        size: A4;
+        margin: 0;
+    }
+    
+    @media print {
+        .page {
+            margin: 0;
+            border: initial;
+            border-radius: initial;
+            width: initial;
+            min-height: initial;
+            box-shadow: initial;
+            background: initial;
+            page-break-after: always;
+        }
+    }
+</style>
+
+<body>
+
+    <div class="book">
+        <div class="page">
+            <h5 class="fw-bold">FR.APL.01. PERMOHONAN SERTIFIKASI KOMPETENSI</h5>
+            <br>
+            <p class="fw-bold">Bagian 1 : Rincian Data Pemohon Sertifikasi</p>
+            <p style="text-align: justify;">Pada bagian ini, cantumlan data pribadi, data pendidikan formal serta data pekerjaan anda pada saat ini.</p>
+            <p class="fw-bold mt-5">a. Data Pribadi</p>
+            <div class="tab">
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <td class="col-4">Nama Lengkap</td>
+                            <td class="col-1">:</td>
+                            <td class="col-7 text-break">{{nama}}</td>
+                        </tr>
+                        <tr>
+                            <td class="col-4">No. KTP/NIK/Paspor</td>
+                            <td class="col-1">:</td>
+                            <td class="col-7 text-break">{{ktp}}</td>
+                        </tr>
+                        <tr>
+                            <td class="col-4">Tempat/tgl. Lahir</td>
+                            <td class="col-1">:</td>
+                            <td class="col-7 text-break">{{tgl lahir}}</td>
+                        </tr>
+                        <tr>
+                            <td class="col-4">Jenis kelamin</td>
+                            <td class="col-1">:</td>
+                            <td class="col-7 text-break">{{kelamin}}</td>
+                        </tr>
+                        <tr>
+                            <td class="col-4">Kebangsaan</td>
+                            <td class="col-1">:</td>
+                            <td class="col-7 text-break">{{indonesia}}</td>
+                        </tr>
+                        <tr>
+                            <td class="col-4">Alamat rumah</td>
+                            <td class="col-1">:</td>
+                            <td class="col-7 text-break">
+                                <div>
+                                    <p>{{Gabugan, Donokerto, Turi, Sleman, Daerah Istimewa Yogyakarta}}</p>
+                                    <p class="mb-0">Kode Pos : {{55551}}</p>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-4">No. Telepon</td>
+                            <td class="col-1">:</td>
+                            <td class="col-7 text-break">{{telepon}}</td>
+                        </tr>
+                        <tr>
+                            <td class="col-4">E-mail</td>
+                            <td class="col-1">:</td>
+                            <td class="col-7 text-break">{{email}}</td>
+                        </tr>
+                        <tr>
+                            <td class="col-4">Kualifikasi Pendidikan</td>
+                            <td class="col-1">:</td>
+                            <td class="col-7 text-break">{{pendidikan}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p class="fw-bold mt-5">b. Data Pekerjaan Sekarang</p>
+            <div class="tab">
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <td class="col-4">Nama Institusi / Perusahaan
+                            </td>
+                            <td class="col-1">:</td>
+                            <td class="col-7 text-break">{{PT maju jaya}}</td>
+                        </tr>
+                        <tr>
+                            <td class="col-4">Jabatan</td>
+                            <td class="col-1">:</td>
+                            <td class="col-7 text-break">{{manager}}</td>
+                        </tr>
+                        <tr>
+                            <td class="col-4">Alamat Kantor</td>
+                            <td class="col-1">:</td>
+                            <td class="col-7 text-break">{{jl magelang, mlati, sleman}}</td>
+                        </tr>
+                        <tr>
+                            <td class="col-4">No. Telp/Fax/E-mail</td>
+                            <td class="col-1">:</td>
+                            <td class="col-7 text-break">{{kelamin}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="page">
+            <p class="fw-bold">Bagian 2 : Data Sertifikasi</p>
+            <p style="text-align: justify;">Tuliskan Judul dan Nomor Skema Sertifikasi yang anda ajukan berikut Daftar Unit Kompetensi sesuai kemasan pada skema sertifikasi untuk mendapatkan pengakuan sesuai dengan latar belakang pendidikan, pelatihan serta pengalaman kerja yang anda
+                miliki.
+            </p>
+            <table class="table table-bordered border-dark">
+                <tbody>
+                    <tr>
+                        <td rowspan="2" class="col-3 text-center">Skema Sertifikasi (KKNI/Okupasi/Klaster)</td>
+                        <td class="col-2">Judul</td>
+                        <td class="col-1 text-center">:</td>
+                        <td class="col-6 text-break">{{manjahit}}</td>
+                    </tr>
+                    <tr>
+                        <td rowspan="2" class="col-2">Nomor</td>
+                        <td class="col-1 text-center">:</td>
+                        <td class="col text-break">{{1234567890}}</td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td rowspan="5" colspan="2" class="col-3">Tujuan Asesmen
+                        </td>
+                        <td class="col-1 text-center">:</td>
+                        <td class="col-6 text-break">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                    Sertifikasi
+                                </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-1 text-center"></td>
+                        <td class="col text-break">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                    Sertifikasi Ulang
+                                </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-1 text-center"></td>
+                        <td class="col text-break">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                    Pengakuan Kompetensi Terkini (PKT)
+                                </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-1 text-center"></td>
+                        <td class="col text-break">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                    Rekognisi Pembelajaran Lampau
+                                </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-1 text-center"></td>
+                        <td class="col text-break">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault">
+                                    Lainnya
+                                </label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p class="fw-bold mt-5">Daftar Unit Kompetensi sesuai kemasan:</p>
+            <table class="table table-bordered border-dark">
+                <thead>
+                    <tr>
+                        <th scope="col" class="text-center col-1
+                                align-middle">No.</th>
+                        <th scope="col" class="text-center col-3
+                                align-middle">Kode Unit</th>
+                        <th scope="col" class="text-center col-5
+                                align-middle">Judul Unit</th>
+                        <th scope="colclass=" class="text-center col-2
+                                align-middle">Jenis Standar (Standar Khusus/Standar Internasional/SKKNI)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" class="text-center">1</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">2</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">3</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">4</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">5</th>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="page">
+            <p class="fw-bold">Bagian 3 : Bukti Kelengkapan Pemohon</p>
+            <p class="fw-bold">Bukti Persyaratan Dasar Pemohon</p>
+            <table class="table table-bordered border-dark">
+                <thead>
+                    <tr>
+                        <th rowspan="2" scope="col" class="text-center col-1
+                                align-middle">No.</th>
+                        <th rowspan="2" scope="col" class="text-center col-7
+                                align-middle">Bukti Persyaratan Dasar</th>
+                        <th rowspan="2" scope="col" class="text-center col-2
+                                align-middle">Memenuhi Syarat</th>
+                        <th rowspan="2" scope="col" class="text-center col-2
+                                align-middle">Tidak Memenuhi Syarat</th>
+                        <th rowspan="2" scope="col" class="text-center col-2
+                                align-middle">Tidak Ada</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row" class="text-center">1</th>
+                        <td>Upload Foto KTP</td>
+                        <td class="text-center">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault"></label>
+                        </td>
+                        <td class="text-center">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault"></label>
+                        </td>
+                        <td class="text-center">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault"></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">2</th>
+                        <td>Upload Foto Ijazah</td>
+                        <td class="text-center">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault"></label>
+                        </td>
+                        <td class="text-center">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault"></label>
+                        </td>
+                        <td class="text-center">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault"></label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th scope="row" class="text-center">3</th>
+                        <td>Upload Sertifikat Pelatihan (Opsional)</td>
+                        <td class="text-center">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault"></label>
+                        </td>
+                        <td class="text-center">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault"></label>
+                        </td>
+                        <td class="text-center">
+                            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
+                            <label class="form-check-label" for="flexCheckDefault"></label>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <table class="table table-bordered border-dark mt-5">
+                <tbody>
+                    <tr>
+                        <td rowspan="3" class="col-6">
+                            <p class="mb-0"><b>Rekomendasi (diisi oleh LSP):</b></p>
+                            <p class="mb-0">Berdasarkan ketentuan persyaratan dasar, maka pemohon:</p>
+                            <p class="mb-0"><b>Diterima/ Tidak diterima *)</b> sebagai peserta sertifikasi</p>
+                            <p class="mb-0">*coret yang tidak sesuai</p>
+                        </td>
+                        <td colspan="3" class="col-6"><b>Pemohon/Kandidat :</b></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Nama</td>
+                        <td class="col-4">{{nama pendaftar}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Tanda tangan/Tanggal</td>
+                        <td class="col-4"></td>
+                    </tr>
+                </tbody>
+                <tbody>
+                    <tr>
+                        <td rowspan="4" class="col-6">
+                            <p class="mb-0"><b>Catatan :</b></p>
+                        </td>
+                        <td colspan="3" class="col-6"><b>Admin LSP :</b></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Nama</td>
+                        <td class="col-4"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">No. Reg</td>
+                        <td class="col-4"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">Tanda tangan/Tanggal</td>
+                        <td class="col-4"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js " integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js " integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF " crossorigin="anonymous "></script> -->
+</body>
+
+</html>

@@ -12,7 +12,12 @@
 <!-- End Header -->
 
 <!-- main -->
-<main id="main">
+<main id="main">6
+  @if(\Illuminate\Support\Facades\Session::has('messageBS'))
+    <div class="alert alert-success mt-5 text-center" role="alert">
+      Pendaftaran Berhasil. <a href="javascript:void(0)" class="alert-link">Silahkan cek Email Anda untuk melihat hasil pendaftaran</a>.
+    </div>
+  @endif
   <form action="{{ route('form-pendaftaran-post') }}" method="post" enctype="multipart/form-data">
     @csrf
     <div class="container mt-5 section-bg p-3 rounded-3">
@@ -190,19 +195,21 @@
         @enderror
       </div>
       <div class="mb-3 mt-3">
-        <label for="kode_pos" class="form-label fw-bold"><span class="text-danger">*</span> Kode Pos :</label>
-        <input type="number" value="{{ old('kode_pos') }}"
-               class="form-control @error('kode_pos') is-invalid @enderror" name="kode_pos" id="kode_pos" placeholder="55551" required>
-        @error('kode_pos')
+        <label for="alamat_sesuai_ktp" class="form-label fw-bold"><span class="text-danger">*</span> Jalan/Desa/Dusun/RT/RW :</label>
+        <input class="form-control @error('alamat_sesuai_ktp') is-invalid @enderror" name="alamat_sesuai_ktp"
+               placeholder="Jalan Demangan, Jineman RT/RW 005/006" id="alamat_sesuai_ktp"
+               value="{{ old('alamat_sesuai_ktp') }}" required>
+        @error('alamat_sesuai_ktp')
         <div class="invalid-feedback">
           {{ $message }}
         </div>
         @enderror
       </div>
       <div class="mb-3 mt-3">
-        <label for="alamat_sesuai_ktp" class="form-label fw-bold"><span class="text-danger">*</span> Alamat Sesuai KTP :</label>
-        <textarea class="form-control @error('alamat_sesuai_ktp') is-invalid @enderror" name="alamat_sesuai_ktp" id="alamat_sesuai_ktp" rows="3" required>{{ old('alamat_sesuai_ktp') }}</textarea>
-        @error('alamat_sesuai_ktp')
+        <label for="kode_pos" class="form-label fw-bold"><span class="text-danger">*</span> Kode Pos :</label>
+        <input type="number" value="{{ old('kode_pos') }}"
+               class="form-control @error('kode_pos') is-invalid @enderror" name="kode_pos" id="kode_pos" placeholder="55551" required>
+        @error('kode_pos')
         <div class="invalid-feedback">
           {{ $message }}
         </div>
