@@ -38,7 +38,7 @@ return [
         //'binary'  => base_path('vendor\h4cc\wkhtmltopdf-amd64\bin\wkhtmltopdf-amd64'),
         'binary'  => strtoupper(substr(PHP_OS, 0, 3)) === 'WIN' ?
 					base_path('vendor\wemersonjanuario\wkhtmltopdf-windows\bin\64bit\wkhtmltopdf') :
-					base_path('vendor\h4cc\wkhtmltopdf-amd64\bin\wkhtmltopdf-amd64'),
+					base_path('vendor/h4cc/wkhtmltopdf-amd64/bin/wkhtmltopdf-amd64'),
         'timeout' => false,
         'options' => [],
         'env'     => [],
