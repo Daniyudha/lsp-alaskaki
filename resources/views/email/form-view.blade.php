@@ -266,7 +266,7 @@
         <tr>
           <td class="col-4">E-mail</td>
           <td class="col-1">:</td>
-          <td class="col-7 text-break">{{ $email }}}</td>
+          <td class="col-7 text-break">{{ $email }}</td>
         </tr>
         <tr>
           <td class="col-4">Kualifikasi Pendidikan</td>
