@@ -253,7 +253,7 @@
           <td class="col-1">:</td>
           <td class="col-7 text-break">
             <div>
-              <p class="mt-0">{{ $provinsi }}, {{ $kabupaten }}, {{ $kecamatan }}, {{ $kelurahan }}, {{ $alamat_sesuai_ktp }}</p>
+              <p class="mt-0">{{ $alamat_sesuai_ktp }}, {{ $kelurahan }}, {{ $kecamatan }}, {{ $kabupaten }}, {{ $provinsi }}</p>
               <p class="mb-0">Kode Pos : {{ $kode_pos }}</p>
             </div>
           </td>
