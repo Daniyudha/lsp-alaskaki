@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 07 Bulan Mei 2022 pada 20.01
+-- Waktu pembuatan: 22 Bulan Mei 2022 pada 01.36
 -- Versi server: 8.0.25
 -- Versi PHP: 8.0.15
 
@@ -123,7 +123,11 @@ CREATE TABLE `registrants` (
   `alamat_sesuai_ktp` text COLLATE utf8mb4_general_ci NOT NULL,
   `pendidikan_terakhir` enum('S3','S2','S1','D4','D3','D2','D1','SMA/SEDRAJAT','SMP','SD') CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `universitas_sekolah` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
-  `bidang_usaha` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `bidang_usaha` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `kantor_sekarang` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `jabatan` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `alamat_kantor` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
+  `phone_fax_email_kantor` varchar(100) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `foto_ktp` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `foto_ijazah` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
   `sertifikat_pelatihan` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
@@ -136,9 +140,18 @@ CREATE TABLE `registrants` (
 -- Dumping data untuk tabel `registrants`
 --
 
-INSERT INTO `registrants` (`id`, `unique_id`, `skema_sertifikasi`, `jenis_uji`, `no_ktp`, `nama_lengkap`, `jenis_kelamin`, `no_hp`, `email`, `tempat_lahir`, `tanggal_lahir`, `provinsi`, `kabupaten`, `kecamatan`, `kelurahan`, `kode_pos`, `alamat_sesuai_ktp`, `pendidikan_terakhir`, `universitas_sekolah`, `bidang_usaha`, `foto_ktp`, `foto_ijazah`, `sertifikat_pelatihan`, `status`, `created_at`, `updated_at`) VALUES
-(4, 'SERTIFIKASI.03.00004', '3', 'sertifikasi', '25342534543654645', 'Rahma Andita Purnama', 'L', '089669413260', 'cobavoba17@gmail.com', 'SLEMAN', '2022-02-20', 'Yogyakarta', 'SLEMAN', 'Turi', 'Girikerto', '55551', 'Jineman.Kloposawit, Girikerto, Turi, Sleman, DIY RT/RW 004/006', 'SMP', 'Amikom', 'Tidak Ada 1', '1645981656-capture.png', '1645307970-untitled.png', NULL, 'pending', '2022-02-19 21:59:30', '2022-02-27 17:31:51'),
-(5, 'SERTIFIKASI.03.00005', '3', 'sertifikasi', '253425345436546x', 'Rahma Andita Purnama', 'L', '089669413260', 'cobavoba17@gmail.com', 'SLEMAN', '2022-02-20', 'Yogyakarta', 'SLEMAN', 'Turi', 'Girikerto', '55551', 'Jineman.Kloposawit, Girikerto, Turi, Sleman, DIY RT/RW 004/006', 'SMP', 'Amikom', 'Tidak Ada', '1645307970-logo.png', '1645307970-untitled.png', NULL, 'pending', '2022-02-19 21:59:30', '2022-04-03 08:46:47');
+INSERT INTO `registrants` (`id`, `unique_id`, `skema_sertifikasi`, `jenis_uji`, `no_ktp`, `nama_lengkap`, `jenis_kelamin`, `no_hp`, `email`, `tempat_lahir`, `tanggal_lahir`, `provinsi`, `kabupaten`, `kecamatan`, `kelurahan`, `kode_pos`, `alamat_sesuai_ktp`, `pendidikan_terakhir`, `universitas_sekolah`, `bidang_usaha`, `kantor_sekarang`, `jabatan`, `alamat_kantor`, `phone_fax_email_kantor`, `foto_ktp`, `foto_ijazah`, `sertifikat_pelatihan`, `status`, `created_at`, `updated_at`) VALUES
+(4, 'SERTIFIKASI.03.00004', '3', 'sertifikasi', '25342534543654645', 'Rahma Andita Purnama', 'L', '089669413260', 'cobavoba17@gmail.com', 'SLEMAN', '2022-02-20', 'Yogyakarta', 'SLEMAN', 'Turi', 'Girikerto', '55551', 'Jineman.Kloposawit, Girikerto, Turi, Sleman, DIY RT/RW 004/006', 'SMP', 'Amikom', 'Tidak Ada 1', NULL, NULL, NULL, NULL, '1645981656-capture.png', '1645307970-untitled.png', NULL, 'pending', '2022-02-19 21:59:30', '2022-02-27 17:31:51'),
+(5, 'SERTIFIKASI.03.00005', '3', 'sertifikasi', '253425345436546x', 'Rahma Andita Purnama', 'L', '089669413260', 'cobavoba17@gmail.com', 'SLEMAN', '2022-02-20', 'Yogyakarta', 'SLEMAN', 'Turi', 'Girikerto', '55551', 'Jineman.Kloposawit, Girikerto, Turi, Sleman, DIY RT/RW 004/006', 'SMP', 'Amikom', 'Tidak Ada', NULL, NULL, NULL, NULL, '1645307970-logo.png', '1645307970-untitled.png', NULL, 'pending', '2022-02-19 21:59:30', '2022-04-03 08:46:47'),
+(6, 'SERTIFIKASI.01.00006', '1', 'sertifikasi', '23424234', 'Rahma', 'L', '08985756', 'blitzindo.utama@gmail.com', 'dasdsadas', '2022-05-10', 'Yogyakarta', 'sleman', 'turi', 'gitikerto', '55551', 'sdfsdfsdf sdfsdfsdfsd', 'S3', 'fsdfsdfsdf', 'dfsdfsdf', NULL, NULL, NULL, NULL, '1652105417-cli-18-removebg-preview.png', '1652105417-images1-removebg-preview.png', NULL, 'pending', '2022-05-09 14:10:17', '2022-05-09 14:10:17'),
+(7, 'SERTIFIKASI.01.00007', '1', 'sertifikasi', '23424234', 'Rahma', 'L', '08985756', 'blitzindo.utama@gmail.com', 'Dasdsadas', '2022-05-11', 'Yogyakarta', 'Sleman', 'Turi', 'Gitikerto', '5435', 'Fdgdfg', 'S1', 'Fsdfsdfsdf', 'Dfsdfsdf', NULL, NULL, NULL, NULL, '1652105727-creative-clipart-creative-person-10.png', '1652105727-images1-removebg-preview.png', NULL, 'pending', '2022-05-09 14:15:27', '2022-05-09 14:15:27'),
+(8, 'SERTIFIKASI.01.00008', '1', 'sertifikasi', '23424234', 'Rahma', 'L', '08985756', 'cobavoba17@gmail.com', 'Dasdsadas', '2022-05-09', 'Yogyakarta', 'Sleman', 'Turi', 'Gitikerto', '34245235', 'Gdfgdfg', 'S2', 'Fsdfsdfsdf', 'Dfsdfsdf', NULL, NULL, NULL, NULL, '1652105823-creative-clipart-creative-person-10.png', '1652105823-images1-removebg-preview.png', NULL, 'pending', '2022-05-09 14:17:03', '2022-05-09 14:17:03'),
+(9, 'SERTIFIKASI.01.00009', '1', 'sertifikasi', '23424234', 'Rahma', 'L', '08985756', 'cobavoba17@gmail.com', 'Sleman', '2022-05-10', 'Yogyakarta', 'Sleman', 'Turi', 'Gitikerto', '55551', 'Jineman 004/006', 'S1', 'Amikom', 'Sepatu', NULL, NULL, NULL, NULL, '1652106558-cli-18-removebg-preview.png', '1652106558-images1-removebg-preview.png', NULL, 'pending', '2022-05-09 14:29:18', '2022-05-09 14:29:18'),
+(10, 'RCC.01.00010', '1', 'rcc', '1111111111111119', 'Rahma', 'L', '08985756', 'cobavoba17@gmail.com', 'Sleman', '2022-05-09', 'Yogyakarta', 'Sleman', 'Turi', 'Gitikerto', '55551', 'Jineman 004/006', 'S1', 'Amikom', 'Sepatu', NULL, NULL, NULL, NULL, '1652106980-creative-clipart-creative-person-10.png', '1652106980-images-removebg-preview.png', NULL, 'pending', '2022-05-09 14:36:20', '2022-05-21 21:25:49'),
+(11, 'SERTIFIKASI.01.00011', '1', 'sertifikasi', '1234567890123456', 'Kusuma Syariah Hotel', 'L', '08982002040', 'cobavoba17@gmail.com', 'SLEMAN', '1999-01-22', 'Yogyakarta', 'Sleman', 'Turi', 'Girikerto', '12345', 'Sleman', 'S3', 'Amikom', 'Tidak Ada 1', NULL, NULL, NULL, NULL, '1653170740-danautobapng.png', '1653170740-destiasi-bg.jpg', NULL, 'pending', '2022-05-21 22:05:40', '2022-05-21 22:05:40'),
+(12, 'RCC.01.00012', '1', 'rcc', '3404150701990000', 'Rahma Andita Purnama', 'L', '089669413260', 'cobavoba17@gmail.com', 'Sleman', '1999-01-07', 'Yogyakarta', 'Sleman', 'Turi', 'Girikerto', '55551', 'Jineman.Kloposawit, Girikerto, Turi, Sleman, DIY RT/RW 004/006', 'S1', 'Amikom YK', '', NULL, NULL, NULL, NULL, '1653171555-danau1.jpg', '1653171555-destiasi-bg.jpg', NULL, 'pending', '2022-05-21 22:19:15', '2022-05-21 22:19:15'),
+(13, 'RCC.01.00013', '1', 'rcc', '3404150701990001', 'Sito Karuniawan', 'L', '+6289669413260', 'cobavoba17@gmail.com', 'SLEMAN', '2022-05-29', 'Yogyakarta', 'Yogyakarta', 'Dsadsadfd', 'Fsdf', '55551', 'JINEMAN.KLOPOSAWIT', 'S1', 'Dsdsad', '', NULL, NULL, NULL, NULL, '1653171735-danau1.jpg', '1653171735-download.jpg', NULL, 'pending', '2022-05-21 22:22:15', '2022-05-21 22:22:15'),
+(14, 'RCC.11.00014', '11', 'rcc', '3404150701990001', 'Rahma Purnama', 'L', '08982002040', 'cobavoba17@gmail.com', 'Sleman', '2022-05-21', 'Yogyakarta', 'Sleman', 'Turi', 'Girikerto', '55551', 'Jineman.Kloposawit, Girikerto, Turi, Sleman, DIY RT/RW 004/006', 'S1', 'Amikom', NULL, 'RahmaTV', 'Founder/CEO', 'Sleman', 'Purwantiibuku@gmail.com', '1653182926-cahaya-taman-cover.jpg', '1653182113-danau1.jpg', '1653182113-kaliurang.jpg', 'success', '2022-05-22 01:15:13', '2022-05-22 01:28:46');
 
 -- --------------------------------------------------------
 
@@ -223,7 +236,7 @@ ALTER TABLE `photo_types`
 -- AUTO_INCREMENT untuk tabel `registrants`
 --
 ALTER TABLE `registrants`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
