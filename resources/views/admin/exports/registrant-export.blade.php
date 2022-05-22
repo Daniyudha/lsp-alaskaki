@@ -21,6 +21,10 @@
     <th>Pendidikan Terakhir</th>
     <th>Universitas/Sekolah</th>
     <th>Bidang Usaha</th>
+    <th>Nama Perusahaan</th>
+    <th>Jabatan</th>
+    <th>>Alamat Perusahaan</th>
+    <th>Telp/Fax/E-mail</th>
     <th>Foto KTP</th>
     <th>Foto Ijazah</th>
     <th>Foto Sertifikat Pelatihan</th>
@@ -49,11 +53,15 @@
       <td>{{ $registrant->alamat_sesuai_ktp }}</td>
       <td>{{ $registrant->pendidikan_terakhir }}</td>
       <td>{{ $registrant->universitas_sekolah }}</td>
-      <td>{{ $registrant->bidang_usaha ?? '-' }}</td>
+      <td>{{ $registrant->bidang_usaha ?? '' }}</td>
+      <td>{{ $registrant->kantor_sekarang ?? '' }}</td>
+      <td>{{ $registrant->jabatan ?? '' }}</td>
+      <td>{{ $registrant->alamat_kantor ?? '' }}</td>
+      <td>{{ $registrant->phone_fax_email_kantor ?? '' }}</td>
       <td>{{ asset('storage/foto_ktp/'.$registrant->foto_ktp) }}</td>
       <td>{{ asset('storage/foto_ijazah/'.$registrant->foto_ijazah) }}</td>
-      <td>{{ asset('storage/sertifikat_pelatihan/'.$registrant->sertifikat_pelatihan) }}</td>
-      <td>{{ $registrant->status }}</td>
+      <td>{{ $registrant->sertifikat_pelatihan ? asset('storage/sertifikat_pelatihan/'.$registrant->sertifikat_pelatihan) : '' }}</td>
+      <td>{{ ucwords($registrant->status) }}</td>
     </tr>
   @endforeach
   </tbody>

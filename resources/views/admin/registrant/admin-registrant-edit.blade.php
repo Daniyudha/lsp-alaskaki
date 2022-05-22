@@ -66,14 +66,14 @@
                 <div class="col-lg-8">
                     <div class="card">
                         <div class="card-body">
-                          <h4 class="header-title">Mengupdate Data Pendaftaran</h4>
+                          <h2 class="">Mengupdate Data Pendaftaran</h2>
                           <p class="card-title-desc">Update data pendaftaran yang sudah di inputkan oleh pendaftar.</p>
   
                           <form action="{{ route('registrant.update', ['registrant' => $registrant->id]) }}" method="post" enctype="multipart/form-data">
                             @csrf
                             @method('put')
                             <div class="container">
-                              <label><span class="text-danger">*</span> Pilih Skema Sertifikasi</label>
+                              <label><span class="text-danger">*</span> Skema Sertifikasi</label>
                               <select class="form-select form-control @error('skema_sertifikasi') is-invalid @enderror" disabled required name="skema_sertifikasi">
                                 <option selected>-- Pilih Skema --</option>
                                 <option value="1" {{ old('skema_sertifikasi', $registrant->skema_sertifikasi) == 1 ? 'selected' : '' }}>1. MENJAHIT ALAS KAKI</option>
@@ -118,11 +118,15 @@
                                 @enderror
                               </div>
                             </div>
+  
     
-                            <div class="container mt-5 mb-3 section-bg p-3 rounded">
+                            <div class="container mt-2 mb-3 section-bg p-3 rounded">
+                              <div class="bg-sub p-0 mt-4 rounded">
+                                <h5>Data Diri</h5>
+                              </div>
                               <div class="mb-3 mt-3">
                                 <label for="no_ktp" class="form-label fw-bold"><span class="text-danger">*</span> No. KTP :</label>
-                                <input type="text" name="no_ktp" minlength="14"
+                                <input type="text" name="no_ktp" minlength="14" maxlength="18"
                                        value="{{ old('no_ktp', $registrant->no_ktp) }}"
                                        class="form-control @error('no_ktp') is-invalid @enderror" id="no_ktp" placeholder="1234567890" required>
                                 @error('no_ktp')
@@ -260,8 +264,8 @@
                                 @enderror
                               </div>
                               <div class="mb-3 mt-3">
-                                <label for="alamat_sesuai_ktp" class="form-label fw-bold"><span class="text-danger">*</span> Alamat Sesuai KTP :</label>
-                                <textarea class="form-control @error('alamat_sesuai_ktp') is-invalid @enderror" name="alamat_sesuai_ktp" id="alamat_sesuai_ktp" rows="3" required>{{ old('alamat_sesuai_ktp',$registrant->alamat_sesuai_ktp) }}</textarea>
+                                <label for="alamat_sesuai_ktp" class="form-label fw-bold"><span class="text-danger">*</span> Jalan/Desa/Dusun/RT/RW :</label>
+                                <input class="form-control @error('alamat_sesuai_ktp') is-invalid @enderror" name="alamat_sesuai_ktp" id="alamat_sesuai_ktp" value="{{ old('alamat_sesuai_ktp',$registrant->alamat_sesuai_ktp) }}" required>
                                 @error('alamat_sesuai_ktp')
                                 <div class="invalid-feedback">
                                   {{ $message }}
@@ -269,8 +273,8 @@
                                 @enderror
                               </div>
       
-                              <div class="bg-sub p-2 mt-4 rounded">
-                                <p class="fw-bold text-white mb-0">Data Pendidikan</p>
+                              <div class="bg-sub p-0 mt-4 rounded">
+                                <h5>Data Pendidikan</h5>
                               </div>
                               <div class="form-group mb-3 mt-3">
                                 <label for="pendidikan_terakhir" class="form-label fw-bold"><span class="text-danger">*</span> Pendidikan Terakhir :</label>
@@ -311,9 +315,49 @@
                                 </div>
                                 @enderror
                               </div>
+                              
+                              <div class="bg-sub p-0 mt-4 rounded">
+                                <h5>Data Pekerjaan</h5>
+                              </div>
+                              <div class="mb-3 mt-3">
+                                <label for="kantor_sekarang" class="form-label fw-bold">Nama Perusahaan/Institusi/Kantor :</label>
+                                <input type="text" value="{{ old('kantor_sekarang', $registrant->kantor_sekarang) }}" maxlength="100" class="form-control @error('kantor_sekarang') is-invalid @enderror" id="kantor_sekarang" name="kantor_sekarang" placeholder="PT Merah Putih">
+                                @error('kantor_sekarang')
+                                <div class="invalid-feedback">
+                                  {{ $message }}
+                                </div>
+                                @enderror
+                              </div>
+                              <div class="mb-3 mt-3">
+                                <label for="jabatan" class="form-label fw-bold">Jabatan :</label>
+                                <input type="text" value="{{ old('jabatan', $registrant->jabatan) }}" maxlength="100" class="form-control @error('jabatan') is-invalid @enderror" id="jabatan" name="jabatan" placeholder="Direktur">
+                                @error('jabatan')
+                                <div class="invalid-feedback">
+                                  {{ $message }}
+                                </div>
+                                @enderror
+                              </div>
+                              <div class="mb-3 mt-3">
+                                <label for="alamat_kantor" class="form-label fw-bold">Alamat Perusahaan/Institusi/Kantor :</label>
+                                <input type="text" value="{{ old('alamat_kantor', $registrant->alamat_kantor) }}" maxlength="255" class="form-control @error('alamat_kantor') is-invalid @enderror" id="alamat_kantor" name="alamat_kantor" placeholder="Alamat lengkap perusahaan/institusi/kantor">
+                                @error('alamat_kantor')
+                                <div class="invalid-feedback">
+                                  {{ $message }}
+                                </div>
+                                @enderror
+                              </div>
+                              <div class="mb-3 mt-3">
+                                <label for="phone_fax_email_kantor" class="form-label fw-bold">No. Telp/Fax/E-mail :</label>
+                                <input type="text" value="{{ old('phone_fax_email_kantor', $registrant->phone_fax_email_kantor) }}" maxlength="100" class="form-control @error('phone_fax_email_kantor') is-invalid @enderror" id="phone_fax_email_kantor" name="phone_fax_email_kantor" placeholder="08932342XXX / (205)90998XX / email@example.com">
+                                @error('phone_fax_email_kantor')
+                                <div class="invalid-feedback">
+                                  {{ $message }}
+                                </div>
+                                @enderror
+                              </div>
       
-                              <div class="bg-sub p-2 mt-4 rounded">
-                                <p class="fw-bold text-white mb-0">Unggah Dokumen (format gambar)</p>
+                              <div class="bg-sub p-0 mt-4 rounded">
+                                <h5>Unggah Dokumen (format gambar)</h5>
                               </div>
                               <div class="mt-3 mb-3">
                                 <label for="foto_ktp" class="form-label fw-bold"> Upload Foto Ktp

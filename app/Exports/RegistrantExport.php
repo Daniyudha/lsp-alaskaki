@@ -1,11 +1,11 @@
 <?php
 namespace App\Exports;
 
-use App\Models\Registrant;
 use Illuminate\Contracts\View\View;
 use Maatwebsite\Excel\Concerns\FromView;
+use Maatwebsite\Excel\Concerns\WithCustomValueBinder;
 
-class RegistrantExport implements FromView
+class RegistrantExport extends \PhpOffice\PhpSpreadsheet\Cell\StringValueBinder implements WithCustomValueBinder, FromView
 {
 	private $registrants;
 

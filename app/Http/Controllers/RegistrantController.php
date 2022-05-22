@@ -33,6 +33,7 @@ class RegistrantController extends Controller
 
 		public function update(Registrant $registrant, Request $request)
 		{
+			//dd($request->all());
 			try {
 				$dataUpdate = [
 					'skema_sertifikasi' => $registrant->skema_sertifikasi,
@@ -53,6 +54,10 @@ class RegistrantController extends Controller
 					'pendidikan_terakhir' => $request->pendidikan_terakhir,
 					'universitas_sekolah' => $request->universitas_sekolah,
 					'bidang_usaha' => $request->bidang_usaha,
+					'kantor_sekarang' => ucwords($request->kantor_sekarang),
+					'jabatan' => ucwords($request->jabatan),
+					'alamat_kantor' => ucwords($request->alamat_kantor),
+					'phone_fax_email_kantor' => ucwords($request->phone_fax_email_kantor),
 					'foto_ktp' => $this->imageRequestUpdate($request, 'foto_ktp', $registrant),
 					'foto_ijazah' => $this->imageRequestUpdate($request, 'foto_ijazah', $registrant),
 					'sertifikat_pelatihan' => $this->imageRequestUpdate($request, 'sertifikat_pelatihan', $registrant)
@@ -64,6 +69,7 @@ class RegistrantController extends Controller
 
 				session()->flash('message', sweetAlert('Success!','Berhasil mengupdate Data Sertifikasi.','success'));
 			} catch (\Exception $e) {
+				dd($e->getMessage());
 				session()->flash('message', sweetAlert('Upss!','Gagal mengupdate Data Sertifikasi. '.$e->getMessage(),'error'));
 			}
 

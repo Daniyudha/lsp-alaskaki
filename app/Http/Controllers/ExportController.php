@@ -23,18 +23,20 @@ class ExportController extends Controller
 		if($request->status != 'semua'){
 			$registrants = $registrants->where('status', $request->status);
 		}
-		$registrants = $registrants->whereBetween('created_at', [$request->start, $request->end])
+		$endRequest = \Carbon\Carbon::parse($request->end)->endOfDay()->format('Y-m-d H:i:s');
+		$startRequest = \Carbon\Carbon::parse($request->start)->startOfDay()->format('Y-m-d H:i:s');
+		$registrants = $registrants->whereBetween('created_at', [$startRequest. '00:00:00', $endRequest])
 		->get();
+		//dd($endRequest, $startRequest);
 
 		if($registrants->isEmpty()){
 			return redirect()->route('export.registrants-view')
 				->with('message', sweetAlert('Maaf!', 'Data tidak ditemukan.','info'));
-		} else {
-			session()->flash('message', sweetAlert('Berhasil Export Data!',$registrants->count().' Data ditemukan.','success'));
 		}
 
 		$start =  \Carbon\Carbon::parse($request->start)->format('d-m-Y');
 		$end =  \Carbon\Carbon::parse($request->end)->format('d-m-Y');
+		//dd($end);
 
 		return Excel::download(new RegistrantExport($registrants),
 			'Data-Pendaftaran ('.ucfirst($request->status).'_'.$start.'_'.$end.').xlsx');

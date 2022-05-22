@@ -106,6 +106,28 @@ class HomeController extends Controller {
 		return view('home.kontak', $data);
 	}
 
+	public function test_email()
+	{
+		$insert = Registrant::query()->first();
+		$data['email'] = 'cobavoba17@gmail.com';
+		$data['title'] = 'Form Pendaftaran LSP Alaskaki';
+		$data['unique_id'] = $insert->unique_id;
+
+		$pdf = PDF::loadView('email.form-view', $insert);
+
+		Mail::send('email.form-sending',
+			[
+				'type' => strtoupper($insert->jenis_uji),
+				'title' => getSchemaCertificate($insert->skema_sertifikasi),
+				'unique_id' => $insert->unique_id
+			], function($message) use($data, $pdf) {
+				$message->to($data['email'], $data['email'])
+					->subject($data['title'])
+					->attachData($pdf->output(), 'Form Pendaftaran '. $data['unique_id'].'.pdf');
+			}
+		);
+	}
+
 	public function kontak_post(Request $request)
 	{
 		$data = [
@@ -201,7 +223,7 @@ class HomeController extends Controller {
 		$dataInsert = [
 			'skema_sertifikasi' => $request->skema_sertifikasi,
 			'jenis_uji' => $request->jenis_uji,
-			'no_ktp' => $request->no_ktp,
+			'no_ktp' => (string) $request->no_ktp,
 			'nama_lengkap' => ucwords($request->nama_lengkap),
 			'jenis_kelamin' => ucwords($request->jenis_kelamin),
 			'no_hp' => $request->no_hp,
@@ -217,6 +239,10 @@ class HomeController extends Controller {
 			'pendidikan_terakhir' => $request->pendidikan_terakhir,
 			'universitas_sekolah' => ucwords($request->universitas_sekolah),
 			'bidang_usaha' => ucwords($request->bidang_usaha),
+			'kantor_sekarang' => ucwords($request->kantor_sekarang),
+			'jabatan' => ucwords($request->jabatan),
+			'alamat_kantor' => ucwords($request->alamat_kantor),
+			'phone_fax_email_kantor' => ucwords($request->phone_fax_email_kantor),
 			'foto_ktp' => $this->imageRequestCreate($request, 'foto_ktp'),
 			'foto_ijazah' => $this->imageRequestCreate($request, 'foto_ijazah'),
 			'sertifikat_pelatihan' => $this->imageRequestCreate($request, 'sertifikat_pelatihan')
@@ -229,7 +255,7 @@ class HomeController extends Controller {
 			$insert->save();
 
 			$data['email'] = $insert->email;
-			$data['title'] = 'Form Pendaftaran LSP Alaskaki';
+			$data['title'] = 'FR.APL.01 PERMOHONAN SERTIFIKASI KOMPETENSI';
 			$data['unique_id'] = $insert->unique_id;
 
 			$pdf = PDF::loadView('email.form-view', $insert);

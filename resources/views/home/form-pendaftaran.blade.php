@@ -5,6 +5,20 @@
 @endSection()
 
 @section('contents')
+  <style>
+      ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+          opacity:0.7 !important;
+      }
+      ::-moz-placeholder { /* Firefox 19+ */
+          opacity:0.7 !important;
+      }
+      :-ms-input-placeholder { /* IE 10+ */
+          opacity:0.7 !important;
+      }
+      :-moz-placeholder { /* Firefox 18- */
+          opacity:0.7 !important;
+      }
+  </style>
 <!-- ======= Header ======= -->
 <div class="bg-header-form p-1 mt-0">
   <h5 class="text-center text-white mb-0">FORM BIODATA CALON PESERTA UJI KOMPETENSI</h5>
@@ -12,7 +26,7 @@
 <!-- End Header -->
 
 <!-- main -->
-<main id="main">6
+<main id="main">
   @if(\Illuminate\Support\Facades\Session::has('messageBS'))
     <div class="alert alert-success mt-5 text-center" role="alert">
       Pendaftaran Berhasil. <a href="javascript:void(0)" class="alert-link">Silahkan cek Email Anda untuk melihat hasil pendaftaran</a>.
@@ -72,7 +86,8 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="no_ktp" class="form-label fw-bold"><span class="text-danger">*</span> No. KTP :</label>
-        <input type="text" value="{{ old('no_ktp') }}" name="no_ktp" class="form-control @error('no_ktp') is-invalid @enderror" id="no_ktp" placeholder="1234567890" required>
+        <input type="text" value="{{ old('no_ktp') }}"
+               minlength="14" maxlength="18" name="no_ktp" class="form-control @error('no_ktp') is-invalid @enderror" id="no_ktp" placeholder="1234567890" required>
         @error('no_ktp')
         <div class="invalid-feedback">
           {{ $message }}
@@ -81,7 +96,9 @@
       </div>
       <div class="mb-3 mt-3">
         <label for="nama_lengkap" class="form-label fw-bold"><span class="text-danger">*</span> Nama Lengkap :</label>
-        <input type="text" value="{{ old('nama_lengkap') }}" name="nama_lengkap" class="form-control @error('nama_lengkap') is-invalid @enderror" id="nama_lengkap" placeholder="Alexander Purwoto" required>
+        <input type="text" value="{{ old('nama_lengkap') }}" name="nama_lengkap" class="form-control @error('nama_lengkap') is-invalid @enderror"
+               minlength="3" maxlength="100"
+               id="nama_lengkap" placeholder="Alexander Purwoto" required>
         @error('nama_lengkap')
         <div class="invalid-feedback">
           {{ $message }}
@@ -253,6 +270,45 @@
         <label for="bidang_usaha" class="form-label fw-bold">Jenis/Bidang Usaha :</label>
         <input type="text" value="{{ old('bidang_usaha') }}" class="form-control @error('bidang_usaha') is-invalid @enderror" id="bidang_usaha" name="bidang_usaha" placeholder="Sepatu">
         @error('bidang_usaha')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+        @enderror
+      </div>
+      <div class="bg-sub p-2 mt-4 rounded">
+        <p class="fw-bold text-white mb-0">Data Pekerjaan</p>
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="kantor_sekarang" class="form-label fw-bold">Nama Perusahaan/Institusi/Kantor :</label>
+        <input type="text" value="{{ old('kantor_sekarang') }}" maxlength="100" class="form-control @error('kantor_sekarang') is-invalid @enderror" id="kantor_sekarang" name="kantor_sekarang" placeholder="PT Merah Putih">
+        @error('kantor_sekarang')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+        @enderror
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="jabatan" class="form-label fw-bold">Jabatan :</label>
+        <input type="text" value="{{ old('jabatan') }}" maxlength="100" class="form-control @error('jabatan') is-invalid @enderror" id="jabatan" name="jabatan" placeholder="Direktur">
+        @error('jabatan')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+        @enderror
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="alamat_kantor" class="form-label fw-bold">Alamat Perusahaan/Institusi/Kantor :</label>
+        <input type="text" value="{{ old('alamat_kantor') }}" maxlength="255" class="form-control @error('alamat_kantor') is-invalid @enderror" id="alamat_kantor" name="alamat_kantor" placeholder="Alamat lengkap perusahaan/institusi/kantor">
+        @error('alamat_kantor')
+        <div class="invalid-feedback">
+          {{ $message }}
+        </div>
+        @enderror
+      </div>
+      <div class="mb-3 mt-3">
+        <label for="phone_fax_email_kantor" class="form-label fw-bold">No. Telp/Fax/E-mail :</label>
+        <input type="text" value="{{ old('phone_fax_email_kantor') }}" maxlength="100" class="form-control @error('phone_fax_email_kantor') is-invalid @enderror" id="phone_fax_email_kantor" name="phone_fax_email_kantor" placeholder="08932342XXX / (205)90998XX / email@example.com">
+        @error('phone_fax_email_kantor')
         <div class="invalid-feedback">
           {{ $message }}
         </div>

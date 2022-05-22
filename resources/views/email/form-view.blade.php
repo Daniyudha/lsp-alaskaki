@@ -236,7 +236,7 @@
         <tr>
           <td class="col-4">Tempat/tgl. Lahir</td>
           <td class="col-1">:</td>
-          <td class="col-7 text-break">{{ $tempat_lahir }}, {{ $tanggal_lahir }}</td>
+          <td class="col-7 text-break">{{ $tempat_lahir }}, {{ \Carbon\Carbon::parse($tanggal_lahir)->format('d-m-Y') }}</td>
         </tr>
         <tr>
           <td class="col-4">Jenis kelamin</td>
@@ -249,7 +249,7 @@
           <td class="col-7 text-break">Indonesia</td>
         </tr>
         <tr>
-          <td class="col-4">Alamat rumah</td>
+          <td class="col-4">Alamat Rumah</td>
           <td class="col-1">:</td>
           <td class="col-7 text-break">
             <div>
@@ -285,22 +285,22 @@
           <td class="col-4">Nama Institusi / Perusahaan
           </td>
           <td class="col-1">:</td>
-          <td class="col-7 text-break">PT maju jaya}}</td>
+          <td class="col-7 text-break">{{ $kantor_sekarang }}</td>
         </tr>
         <tr>
           <td class="col-4">Jabatan</td>
           <td class="col-1">:</td>
-          <td class="col-7 text-break">manager}}</td>
+          <td class="col-7 text-break">{{ $jabatan }}</td>
         </tr>
         <tr>
           <td class="col-4">Alamat Kantor</td>
           <td class="col-1">:</td>
-          <td class="col-7 text-break">jl magelang, mlati, sleman}}</td>
+          <td class="col-7 text-break">{{ $alamat_kantor }}</td>
         </tr>
         <tr>
           <td class="col-4">No. Telp/Fax/E-mail</td>
           <td class="col-1">:</td>
-          <td class="col-7 text-break">kelamin}}</td>
+          <td class="col-7 text-break">{{ $phone_fax_email_kantor }}</td>
         </tr>
         </tbody>
       </table>
@@ -318,12 +318,12 @@
         <td rowspan="2" class="col-3 text-center">Skema Sertifikasi (KKNI/Okupasi/Klaster)</td>
         <td class="col-2">Judul</td>
         <td class="col-1 text-center">:</td>
-        <td class="col-6 text-break">menjahit}}</td>
+        <td class="col-6 text-break">{{ getSchemaCertificate($skema_sertifikasi) }}</td>
       </tr>
       <tr>
         <td rowspan="2" class="col-2">Nomor</td>
         <td class="col-1 text-center">:</td>
-        <td class="col text-break">1234567890}}</td>
+        <td class="col text-break">{{ $id }}</td>
       </tr>
       </tbody>
       <tbody>
@@ -509,7 +509,7 @@
       </tr>
       <tr>
         <td colspan="2">Nama</td>
-        <td class="col-4">nama pendaftar}}</td>
+        <td class="col-4">{{ $nama_lengkap }}</td>
       </tr>
       <tr>
         <td colspan="2">Tanda tangan/Tanggal</td>
