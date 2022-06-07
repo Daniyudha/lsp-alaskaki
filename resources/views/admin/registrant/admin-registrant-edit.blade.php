@@ -30,6 +30,9 @@
               <div class="card">
         
                 <div class="card-body">
+                  <a href="{{ route('registrant.download-pdf', ['registrant' => $registrant->id]) }}">
+                    <button class="btn btn-danger float-right">Download PDF</button>
+                  </a>
                   <h4 class="header-title">Mengupdate Status Pendaftaran</h4>
                   <p class="card-title-desc">Update status pendaftaran yang sudah di inputkan oleh pendaftar.</p>
                   <form id="formStatus" method="post" action="{{ route('admin.registrant-update-status', ['registrant' => $registrant->id]) }}">

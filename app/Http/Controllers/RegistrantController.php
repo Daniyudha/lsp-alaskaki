@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Registrant;
+use Barryvdh\Snappy\Facades\SnappyPdf as PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -114,5 +115,10 @@ class RegistrantController extends Controller
 			$registrant->delete();
 			return redirect()->back()->with('message',
 				sweetAlert('Success!','Berhasil menghapus pendaftaran','success'));
+		}
+
+		public function downloadPdfRegistrant(Registrant $registrant): \Illuminate\Http\Response {
+			$pdf = PDF::loadView('email.form-view', $registrant);
+			return $pdf->download('Form Pendaftaran '. $registrant->unique_id.'.pdf');
 		}
 }

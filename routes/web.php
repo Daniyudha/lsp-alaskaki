@@ -66,6 +66,7 @@ Route::prefix('dashboard')->middleware('auth')->group(function (){
 
 	Route::get('/registrant', [RegistrantController::class, 'index'])->name('registrant.index');
 	Route::get('/registrant/{registrant}/edit', [RegistrantController::class, 'edit'])->name('registrant.edit');
+	Route::get('/registrant/{registrant}/download-pdf', [RegistrantController::class, 'downloadPdfRegistrant'])->name('registrant.download-pdf');
 	Route::put('/registrant/{registrant}/edit', [RegistrantController::class, 'update'])->name('registrant.update');
 	Route::delete('/registrant/{registrant}/delete', [RegistrantController::class, 'destroy'])->name('registrant.destroy');
 	Route::put('/registrant/{registrant}/update-status', [RegistrantController::class, 'updateStatusRegistrant'])

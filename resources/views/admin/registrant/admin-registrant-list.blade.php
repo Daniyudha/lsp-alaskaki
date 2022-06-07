@@ -42,6 +42,7 @@
                                 <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>Unique ID</th>
                                     <th>Nama</th>
                                     <th>Jenis</th>
                                     <th class="text-center">Status</th>
@@ -55,6 +56,7 @@
 
                                 @foreach($registrants as $reg)
                                     <tr>
+                                        <td>{{ $reg->id }}</td>
                                         <td data-order="{{ $reg['id'] }}">{{ $reg['unique_id'] }}</td>
                                         <td>{{ $reg->nama_lengkap }}</td>
                                         <td>{{ getSchemaCertificate($reg['skema_sertifikasi']) }}</td>
@@ -71,6 +73,7 @@
                                                 </button>
                                                 <div class="dropdown-menu">
                                                     <a class="dropdown-item" href="{{ route('registrant.edit',['registrant' => $reg['id']]) }}">Detail Registrant</a>
+                                                    <a class="dropdown-item" href="{{ route('registrant.download-pdf', ['registrant' => $reg['id']]) }}">Download PDF</a>
                                                     <div class="dropdown-divider"></div>
                                                     <a class="dropdown-item btn_delete" data-nama="<?= $reg['unique_id'] ?>"
                                                        data-href="{{ route('registrant.destroy', ['registrant' => $reg['id']]) }}"

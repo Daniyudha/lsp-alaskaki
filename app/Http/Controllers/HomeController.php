@@ -18,7 +18,9 @@ class HomeController extends Controller {
 	public function index() {
 		$data = [
 			'title' => 'Welcome',
-			'articles' => Article::query()->limit(3)->inRandomOrder()->get()
+			'articles' => Article::query()->limit(3)->inRandomOrder()->get(),
+			'pemegang_sertifikasi' => Registrant::query()
+				->where('status', 'success')->count()
 		];
 
 		return view('home.index', $data);

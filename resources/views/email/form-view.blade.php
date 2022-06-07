@@ -392,36 +392,57 @@
       </tr>
       </thead>
       <tbody>
-      <tr>
-        <th scope="row" class="text-center">1</th>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th scope="row" class="text-center">2</th>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th scope="row" class="text-center">3</th>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th scope="row" class="text-center">4</th>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
-      <tr>
-        <th scope="row" class="text-center">5</th>
-        <td></td>
-        <td></td>
-        <td></td>
-      </tr>
+      @if($skema_sertifikasi == 1)
+        <tr>
+          <th scope="row" class="text-center">1</th>
+          <td class="text-center">C.152000.022.01</td>
+          <td>Melakukan Proses Jahit Alas Kaki dengan Menggunakan Mesin Jahit</td>
+          <td class="text-center">SKKNI</td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-center">2</th>
+          <td class="text-center">C.141110.041.02</td>
+          <td>Melaksanakan Pemeliharaan Mesin Jahit Secara Rutin</td>
+          <td class="text-center">SKKNI</td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-center">3</th>
+          <td class="text-center">C.141110.043.02</td>
+          <td>Memperbaiki Mesin Jahit</td>
+          <td class="text-center">SKKNI</td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-center">4</th>
+          <td class="text-center">C.141110.044.02</td>
+          <td>Mengikuti Prosedur Kesehatan dan Keselamatan Kerja di Tempat Kerja</td>
+          <td class="text-center">SKKNI</td>
+        </tr>
+      @else
+        <tr>
+          <th scope="row" class="text-center">1</th>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-center">2</th>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-center">3</th>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row" class="text-center">4</th>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      @endif
       </tbody>
     </table>
   </div>
