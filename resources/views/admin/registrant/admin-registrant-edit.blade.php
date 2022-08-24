@@ -364,7 +364,9 @@
                               </div>
                               <div class="mt-3 mb-3">
                                 <label for="foto_ktp" class="form-label fw-bold"> Upload Foto Ktp
-                                  <a href="{{ asset('storage/foto_ktp/'.$registrant->foto_ktp) }}" target="_blank"><span class="text-info">Lihat</span></a>
+                                  @if($registrant->foto_ktp)
+                                    <a href="{{ asset('storage/foto_ktp/'.$registrant->foto_ktp) }}" target="_blank"><span class="text-info">Lihat</span></a>
+                                  @endif
                                 </label>
                                 <input type="file" class="form-control @error('foto_ktp') is-invalid @enderror" id="foto_ktp" name="foto_ktp">
                                 @error('foto_ktp')
@@ -375,7 +377,9 @@
                               </div>
                               <div class="mt-3 mb-3">
                                 <label for="foto_ijazah" class="form-label fw-bold"> Upload Foto Ijazah
-                                  <a href="{{ asset('storage/foto_ijazah/'.$registrant->foto_ijazah) }}" target="_blank"><span class="text-info">Lihat</span></a>
+                                  @if($registrant->foto_ijazah)
+                                    <a href="{{ asset('storage/foto_ijazah/'.$registrant->foto_ijazah) }}" target="_blank"><span class="text-info">Lihat</span></a>
+                                  @endif
                                 </label>
                                 <input type="file" class="form-control @error('foto_ijazah') is-invalid @enderror" id="foto_ijazah" name="foto_ijazah">
                                 @error('foto_ijazah')
