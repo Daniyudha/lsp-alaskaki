@@ -16,10 +16,10 @@
     <th>Kabupaten</th>
     <th>Kecamatan</th>
     <th>Kelurahan</th>
-    <th>Kode Pos</th>
+    {{--<th>Kode Pos</th>--}}
     <th>Alamat Sesuai KTP</th>
     <th>Pendidikan Terakhir</th>
-    <th>Universitas/Sekolah</th>
+    {{--<th>Universitas/Sekolah</th>--}}
     <th>Bidang Usaha</th>
     <th>Nama Perusahaan</th>
     <th>Jabatan</th>
@@ -49,10 +49,10 @@
       <td>{{ $registrant->kabupaten }}</td>
       <td>{{ $registrant->kecamatan }}</td>
       <td>{{ $registrant->kelurahan }}</td>
-      <td>{{ $registrant->kode_pos }}</td>
+      {{--<td>{{ $registrant->kode_pos }}</td>--}}
       <td>{{ $registrant->alamat_sesuai_ktp }}</td>
       <td>{{ $registrant->pendidikan_terakhir }}</td>
-      <td>{{ $registrant->universitas_sekolah }}</td>
+      {{--<td>{{ $registrant->universitas_sekolah }}</td>--}}
       <td>{{ $registrant->bidang_usaha ?? '' }}</td>
       <td>{{ $registrant->kantor_sekarang ?? '' }}</td>
       <td>{{ $registrant->jabatan ?? '' }}</td>
