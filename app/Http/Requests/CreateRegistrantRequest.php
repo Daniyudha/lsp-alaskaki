@@ -58,8 +58,8 @@ class CreateRegistrantRequest extends FormRequest
             'alamat_kantor' => 'nullable|string|max:255',
             'phone_fax_email_kantor' => 'nullable|string|max:100',
             'bidang_usaha' => 'nullable|string|max:100',
-            'foto_ktp' => 'required|image|mimes:jpeg,png,jpg',
-            'foto_ijazah' => 'required|image|mimes:jpeg,png,jpg',
+            'foto_ktp' => 'nullable|image|mimes:jpeg,png,jpg',
+            'foto_ijazah' => 'nullable|image|mimes:jpeg,png,jpg',
             'sertifikat_pelatihan' => 'nullable|image|mimes:jpeg,png,jpg'
         ];
     }

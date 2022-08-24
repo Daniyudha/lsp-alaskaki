@@ -319,8 +319,8 @@
         <p class="fw-bold text-white mb-0">Unggah Dokumen (format gambar)</p>
       </div>
       <div class="mt-3 mb-3">
-        <label for="foto_ktp" class="form-label fw-bold"><span class="text-danger">*</span> Upload Foto Ktp</label>
-        <input type="file" class="form-control @error('foto_ktp') is-invalid @enderror" id="foto_ktp" name="foto_ktp" required>
+        <label for="foto_ktp" class="form-label fw-bold">Upload Foto Ktp</label>
+        <input type="file" class="form-control @error('foto_ktp') is-invalid @enderror" id="foto_ktp" name="foto_ktp">
         @error('foto_ktp')
         <div class="invalid-feedback">
           {{ $message }}
@@ -328,8 +328,8 @@
         @enderror
       </div>
       <div class="mt-3 mb-3">
-        <label for="foto_ijazah" class="form-label fw-bold"><span class="text-danger">*</span> Upload Foto Ijazah</label>
-        <input type="file" class="form-control @error('foto_ijazah') is-invalid @enderror" id="foto_ijazah" name="foto_ijazah" required>
+        <label for="foto_ijazah" class="form-label fw-bold">Upload Foto Ijazah</label>
+        <input type="file" class="form-control @error('foto_ijazah') is-invalid @enderror" id="foto_ijazah" name="foto_ijazah">
         @error('foto_ijazah')
         <div class="invalid-feedback">
           {{ $message }}
