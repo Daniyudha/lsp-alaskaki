@@ -46,13 +46,13 @@ class UpdateRegistrantRequest extends FormRequest
             'kabupaten' => 'required|string',
             'kecamatan' => 'required|string',
             'kelurahan' => 'required|string',
-            'kode_pos' => 'required|numeric',
+            // 'kode_pos' => 'required|numeric',
             'alamat_sesuai_ktp' => 'required|string|max:255|min:5',
             'pendidikan_terakhir' => [
 							'required',
 							Rule::in(['S3','S2','S1','D4','D3','D2','D1','SMA/SEDRAJAT','SMP','SD'])
 						],
-            'universitas_sekolah' => 'required|string',
+            // 'universitas_sekolah' => 'required|string',
             'bidang_usaha' => 'nullable|string',
             'foto_ktp' => 'nullable|image|mimes:jpeg,png,jpg',
             'foto_ijazah' => 'nullable|image|mimes:jpeg,png,jpg',

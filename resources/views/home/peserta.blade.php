@@ -32,7 +32,7 @@
               <th>ID</th>
               <th>Nama</th>
               <th>Skema</th>
-              <th>Dibuat</th>
+              {{--<th>Dibuat</th>--}}
             </tr>
             </thead>
             <tbody>
@@ -41,11 +41,11 @@
                 <td data-order="{{ $registrant->id }}">{{ $registrant->unique_id }}</td>
                 <td>{{ $registrant->nama_lengkap }}</td>
                 <td>{{ getSchemaCertificate($registrant->skema_sertifikasi) }}</td>
-                <td>
-                  <span data-toggle="tooltip" data-placement="top" title="{{ \Carbon\Carbon::parse($registrant->created_at)->diffForHumans() }}">
-                    {{ \Carbon\Carbon::parse($registrant->created_at)->format('d-m-Y H:i') }}
-                  </span>
-                </td>
+                {{--<td>--}}
+                {{--  <span data-toggle="tooltip" data-placement="top" title="{{ \Carbon\Carbon::parse($registrant->created_at)->diffForHumans() }}">--}}
+                {{--    {{ \Carbon\Carbon::parse($registrant->created_at)->format('d-m-Y H:i') }}--}}
+                {{--  </span>--}}
+                {{--</td>--}}
               </tr>
             @endforeach
             </tbody>

@@ -46,13 +46,13 @@ class CreateRegistrantRequest extends FormRequest
             'kabupaten' => 'required|string|max:100',
             'kecamatan' => 'required|string|max:100',
             'kelurahan' => 'required|string|max:100',
-            'kode_pos' => 'required|numeric',
+            // 'kode_pos' => 'required|numeric',
             'alamat_sesuai_ktp' => 'required|string|max:255|min:5',
             'pendidikan_terakhir' => [
 							'required',
 							Rule::in(['S3','S2','S1','D4','D3','D2','D1','SMA/SEDRAJAT','SMP','SD'])
 						],
-            'universitas_sekolah' => 'required|string|max:100',
+            // 'universitas_sekolah' => 'required|string|max:100',
             'kantor_sekarang' => 'nullable|string|max:100',
             'jabatan' => 'nullable|string|max:100',
             'alamat_kantor' => 'nullable|string|max:255',

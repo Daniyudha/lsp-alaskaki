@@ -222,16 +222,16 @@
         </div>
         @enderror
       </div>
-      <div class="mb-3 mt-3">
-        <label for="kode_pos" class="form-label fw-bold"><span class="text-danger">*</span> Kode Pos :</label>
-        <input type="number" value="{{ old('kode_pos') }}"
-               class="form-control @error('kode_pos') is-invalid @enderror" name="kode_pos" id="kode_pos" placeholder="55551" required>
-        @error('kode_pos')
-        <div class="invalid-feedback">
-          {{ $message }}
-        </div>
-        @enderror
-      </div>
+      {{--<div class="mb-3 mt-3">--}}
+      {{--  <label for="kode_pos" class="form-label fw-bold"><span class="text-danger">*</span> Kode Pos :</label>--}}
+      {{--  <input type="number" value="{{ old('kode_pos') }}"--}}
+      {{--         class="form-control @error('kode_pos') is-invalid @enderror" name="kode_pos" id="kode_pos" placeholder="55551" required>--}}
+      {{--  @error('kode_pos')--}}
+      {{--  <div class="invalid-feedback">--}}
+      {{--    {{ $message }}--}}
+      {{--  </div>--}}
+      {{--  @enderror--}}
+      {{--</div>--}}
 
       <div class="bg-sub p-2 mt-4 rounded">
         <p class="fw-bold text-white mb-0">Data Pendidikan</p>
@@ -257,15 +257,15 @@
         </div>
         @enderror
       </div>
-      <div class="mb-3 mt-3">
-        <label for="universitas_sekolah" class="form-label fw-bold"><span class="text-danger">*</span> Perguruan Tinggi/Universitas atau Sekolah :</label>
-        <input type="text" value="{{ old('universitas_sekolah') }}" class="form-control @error('universitas_sekolah') is-invalid @enderror" name="universitas_sekolah" id="universitas_sekolah" placeholder="Universitas Terbuka" required>
-        @error('universitas_sekolah')
-        <div class="invalid-feedback">
-          {{ $message }}
-        </div>
-        @enderror
-      </div>
+      {{--<div class="mb-3 mt-3">--}}
+      {{--  <label for="universitas_sekolah" class="form-label fw-bold"><span class="text-danger">*</span> Perguruan Tinggi/Universitas atau Sekolah :</label>--}}
+      {{--  <input type="text" value="{{ old('universitas_sekolah') }}" class="form-control @error('universitas_sekolah') is-invalid @enderror" name="universitas_sekolah" id="universitas_sekolah" placeholder="Universitas Terbuka" required>--}}
+      {{--  @error('universitas_sekolah')--}}
+      {{--  <div class="invalid-feedback">--}}
+      {{--    {{ $message }}--}}
+      {{--  </div>--}}
+      {{--  @enderror--}}
+      {{--</div>--}}
       <div class="mb-3 mt-3">
         <label for="bidang_usaha" class="form-label fw-bold">Jenis/Bidang Usaha :</label>
         <input type="text" value="{{ old('bidang_usaha') }}" class="form-control @error('bidang_usaha') is-invalid @enderror" id="bidang_usaha" name="bidang_usaha" placeholder="Sepatu">
