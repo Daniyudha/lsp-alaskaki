@@ -200,6 +200,9 @@
                     {{ $message }}
                 </div>
                 @enderror
+            </div> 
+            <div class="bg-sub p-2 rounded mt-4">
+                <p class="fw-bold text-white mb-0">Alamat</p>
             </div>
             <div class="form-group mb-3 mt-3">
                 <label for="provinsi" class="form-label fw-bold"><span class="text-danger">*</span> Provinsi:</label>
